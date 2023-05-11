@@ -170,40 +170,30 @@
         </div>
         <!-- quickview product start -->
 
-        <!-- jquery
-        ============================================ -->
-        <script src="js/vendor/jquery-1.12.1.min.js"></script>
-        <!-- bootstrap JS
-        ============================================ -->
-        <script src="js/bootstrap.min.js"></script>
-        <!-- wow JS
-        ============================================ -->
-        <script src="js/wow.min.js"></script>
-        <!-- price-slider JS
-        ============================================ -->
-        <script src="js/jquery-price-slider.js"></script>
-        <!-- nivoslider JS
-        ============================================ -->
-        <script src="lib/js/jquery.nivo.slider.js"></script>
-        <script src="lib/home.js"></script>
-        <!-- meanmenu JS
-        ============================================ -->
-        <script src="js/jquery.meanmenu.js"></script>
-        <!-- owl.carousel JS
-        ============================================ -->
-        <script src="js/owl.carousel.min.js"></script>
-        <!-- elevatezoom JS
-        ============================================ -->
-        <script src="js/jquery.elevatezoom.js"></script>
-        <!-- scrollUp JS
-        ============================================ -->
-        <script src="js/jquery.scrollUp.min.js"></script>
-        <!-- plugins JS
-        ============================================ -->
-        <script src="js/plugins.js"></script>
-        <!-- main JS
-        ============================================ -->
-        <script src="js/main.js"></script>
+        <!-- jquery -->
+        <script src="{{ asset('js/vendor/jquery-1.12.1.min.js') }}"></script>
+        <!-- bootstrap JS -->
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+        <!-- wow JS -->
+        <script src="{{ asset('js/wow.min.js') }}"></script>
+        <!-- price-slider JS -->
+        <script src="{{ asset('js/jquery-price-slider.js') }}"></script>
+        <!-- nivoslider JS -->
+        <script src="{{ asset('lib/js/jquery.nivo.slider.js') }}"></script>
+        <script src="{{ asset('lib/home.js') }}"></script>
+        <!-- meanmenu JS -->
+        <script src="{{ asset('js/jquery.meanmenu.js') }}"></script>
+        <!-- owl.carousel JS -->
+        <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+        <!-- elevatezoom JS -->
+        <script src="{{ asset('js/jquery.elevatezoom.js') }}"></script>
+        <!-- scrollUp JS -->
+        <script src="{{ asset('js/jquery.scrollUp.min.js') }}"></script>
+        <!-- plugins JS -->
+        <script src="{{ asset('js/plugins.js') }}"></script>
+        <!-- main JS -->
+        <script src="{{ asset('js/main.js') }}"></script>
+
     </body>
 
 <!-- Mirrored from preview.hasthemes.com/james-preview/james/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 11 Jan 2021 00:38:50 GMT -->

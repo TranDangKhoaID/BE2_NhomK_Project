@@ -21,48 +21,36 @@
 
         <!-- All css -->
 
-        <!-- Bootstrap CSS
-        ============================================ -->
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <!-- Bootstrap CSS
-        ============================================ -->
-        <link rel="stylesheet" href="css/font-awesome.min.css">
-        <!-- owl.carousel CSS
-        ============================================ -->
-        <link rel="stylesheet" href="css/owl.carousel.css">
-        <link rel="stylesheet" href="css/owl.theme.css">
-        <link rel="stylesheet" href="css/owl.transitions.css">
-        <!-- jquery-ui CSS
-        ============================================ -->
-        <link rel="stylesheet" href="css/jquery-ui.css">
-        <!-- meanmenu CSS
-        ============================================ -->
-        <link rel="stylesheet" href="css/meanmenu.min.css">
-        <!-- nivoslider CSS
-        ============================================ -->
-        <link rel="stylesheet" href="lib/css/nivo-slider.css">
-        <link rel="stylesheet" href="lib/css/preview.css">
-        <!-- animate CSS
-        ============================================ -->
-        <link rel="stylesheet" href="css/animate.css">
-        <!-- magic CSS
-        ============================================ -->
-        <link rel="stylesheet" href="css/magic.css">
-        <!-- normalize CSS
-        ============================================ -->
-        <link rel="stylesheet" href="css/normalize.css">
-        <!-- main CSS
-        ============================================ -->
-        <link rel="stylesheet" href="css/main.css">
-        <!-- style CSS
-        ============================================ -->
-        <link rel="stylesheet" href="style.css">
-        <!-- responsive CSS
-        ============================================ -->
-        <link rel="stylesheet" href="css/responsive.css">
-        <!-- modernizr JS
-        ============================================ -->
-        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
+        <!-- owl.carousel CSS -->
+        <link rel="stylesheet" href="{{ asset('css/owl.carousel.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/owl.theme.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/owl.transitions.css') }}">
+        <!-- jquery-ui CSS -->
+        <link rel="stylesheet" href="{{ asset('css/jquery-ui.css') }}">
+        <!-- meanmenu CSS -->
+        <link rel="stylesheet" href="{{ asset('css/meanmenu.min.css') }}">
+        <!-- nivoslider CSS -->
+        <link rel="stylesheet" href="{{ asset('lib/css/nivo-slider.css') }}">
+        <link rel="stylesheet" href="{{ asset('lib/css/preview.css') }}">
+        <!-- animate CSS -->
+        <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
+        <!-- magic CSS -->
+        <link rel="stylesheet" href="{{ asset('css/magic.css') }}">
+        <!-- normalize CSS -->
+        <link rel="stylesheet" href="{{ asset('css/normalize.css') }}">
+        <!-- main CSS -->
+        <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+        <!-- style CSS -->
+        <link rel="stylesheet" href="{{ asset('style.css') }}">
+        <!-- responsive CSS -->
+        <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
+        <!-- modernizr JS -->
+        <script src="{{ asset('js/vendor/modernizr-2.8.3.min.js') }}"></script>
+
 </head>
     <body>
         <!--[if lt IE 8]>
@@ -94,19 +82,19 @@
                                                 <li><a href="cart.html">my cart</a></li>
                                                 <li><a href="checkout.html">Checkout</a></li>
                                                 <li><a href="blog.html">Blog</a></li>
-                                                <li><a href="#">Log in</a></li>
+                                                <li><a href="">Register</a></li>
                                             </ul>
                                         </li>
                                     </ul>
                                 </div>
                                 <div class="cart-menu">
                                     <ul>
-                                        <li><a href="#"> <img src="img/icon-cart.png" alt=""> <span>2</span> </a>
+                                        <li><a href="#"> <img src="{{ asset('img/icon-cart.png')}}" alt=""> <span>2</span> </a>
                                             <div class="cart-info">
                                                 <ul>
                                                     <li>
-                                                        <div class="cart-img">
-                                                            <img src="img/cart/1.png" alt="">
+                                                        <div class="{{ asset('cart-img')}}">
+                                                            <img src="{{ asset('img/cart/1.png')}}" alt="">
                                                         </div>
                                                         <div class="cart-details">
                                                             <a href="#">Fusce aliquam</a>
@@ -117,7 +105,7 @@
                                                     </li>
                                                     <li>
                                                         <div class="cart-img">
-                                                            <img src="img/cart/2.png" alt="">
+                                                            <img src="{{ asset('img/cart/2.png')}}" alt="">
                                                         </div>
                                                         <div class="cart-details">
                                                             <a href="#">Fusce aliquam</a>
@@ -144,145 +132,18 @@
                         <div class="col-md-3">
                             <div class="logo">
                                 <a href="">
-                                    <img src="img/logo.png" alt="">
+                                    <img src="{{ asset('img/logo.png')}}" alt="">
                                 </a>
                             </div>
                         </div>
                         <div class="col-md-9">
                             <div class="mainmenu">
                                 <nav>
-                                    <ul>
-                                        <li><a href="index.html">Home</a>
-                                            <div class="sub-menu">
-                                                <span>
-                                                    <a href="index.html">Home version 1</a>
-                                                </span>
-                                                <span>
-                                                    <a href="index-2.html">Home version 2</a>
-                                                </span>
-                                            </div>
-                                        </li>
-                                        <li class="mega-women"><a href="shop.html">Women</a>
-                                            <div class="mega-menu women">
-                                                <div class="part-1">
-                                                    <span>
-                                                        <a href="#">Dresses</a>
-                                                        <a href="#">Cocktail</a>
-                                                        <a href="#">Day</a>
-                                                        <a href="#">Evening</a>
-                                                        <a href="#">Sports</a>
-                                                    </span>
-                                                    <span>
-                                                        <a href="#">shoes</a>
-                                                        <a href="#">Sports</a>
-                                                        <a href="#">run</a>
-                                                        <a href="#">sandals</a>
-                                                        <a href="#">Books</a>
-                                                    </span>
-                                                    <span>
-                                                        <a href="#">Handbags</a>
-                                                        <a href="#">Blazers</a>
-                                                        <a href="#">table</a>
-                                                        <a href="#">coats</a>
-                                                        <a href="#">kids</a>
-                                                    </span>
-                                                    <span>
-                                                        <a href="#">Clothing</a>
-                                                        <a href="#">T-shirts</a>
-                                                        <a href="#">coats</a>
-                                                        <a href="#">Jackets</a>
-                                                        <a href="#">jeans</a>
-                                                    </span>
-                                                </div>
-                                                <div class="part-2">
-                                                    <a href="#">
-                                                        <img src="img/banner/menu-banner.png" alt="">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="mega-men"><a href="shop.html">Men</a>
-                                            <div class="mega-menu men">
-                                                <span>
-                                                    <a href="#">Bags</a>
-                                                    <a href="#">Bootees  Bags</a>
-                                                    <a href="#">Blazers</a>
-                                                </span>
-                                                <span>
-                                                    <a href="#">Clothing</a>
-                                                    <a href="#">coats</a>
-                                                    <a href="#">T-shirts</a>
-                                                </span>
-                                                <span>
-                                                    <a href="#">Lingerie</a>
-                                                    <a href="#">Bands</a>
-                                                    <a href="#">Furniture</a>
-                                                </span>
-                                            </div>
-                                        </li>
-                                        <li class="mega-footwear"><a href="shop.html">Footwear</a>
-                                            <div class="mega-menu footwear">
-                                                <span>
-                                                    <a href="#">Footwear Man</a>
-                                                    <a href="#">gifts</a>
-                                                </span>
-                                                <span>
-                                                    <a href="#">Footwear Womens</a>
-                                                    <a href="#">boots</a>
-                                                </span>
-                                            </div>
-                                        </li>
-                                        <li class="mega-jewellery"><a href="shop.html">Jewellery</a>
-                                            <div class="mega-menu jewellery">
-                                                <span>
-                                                    <a href="#">Rings</a>
-                                                </span>
-                                            </div>
-                                        </li>
-                                        <li><a href="shop.html">accessories</a></li>
-                                        <li><a href="#">Pages</a>
-                                            <div class="sub-menu pages">
-                                                <span>
-                                                    <a href="about-us.html">About us</a>
-                                                </span>
-                                                <span>
-                                                    <a href="blog.html">Blog</a>
-                                                </span>
-                                                <span>
-                                                    <a href="blog-details.html">Blog Details</a>
-                                                </span>
-                                                <span>
-                                                    <a href="cart.html">Cart</a>
-                                                </span>
-                                                <span>
-                                                    <a href="checkout.html">Checkout</a>
-                                                </span>
-                                                <span>
-                                                    <a href="contact.html">Contact</a>
-                                                </span>
-                                                <span>
-                                                    <a href="my-account.html">My account</a>
-                                                </span>
-                                                <span>
-                                                    <a href="shop.html">Shop</a>
-                                                </span>
-                                                <span>
-                                                    <a href="shop-list.html">Shop list</a>
-                                                </span>
-                                                <span>
-                                                    <a href="single-product.html">Single Shop</a>
-                                                </span>
-                                                <span>
-                                                    <a href="login.html">Login page</a>
-                                                </span>
-                                                <span>
-                                                    <a href="register.html">Ragister page</a>
-                                                </span>
-                                                <span>
-                                                    <a href="wishlist.html">Wishlist</a>
-                                                </span>
-                                            </div>
-                                        </li>
+                                    <ul>                                      
+                                        <li><a href="/">Home</a></li>
+                                        <li><a href="/shop">Shops</a></li>
+                                        <li><a href="/shop">Blogs</a></li> 
+                                        <li><a href="/shop">About us</a></li> 
                                     </ul>
                                 </nav>
                             </div>

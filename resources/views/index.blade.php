@@ -99,13 +99,18 @@
                                     <img src="{{ asset('img/product/' . $product->image) }}" alt="" class="primary-img">
                                 </div>
                                 <div class="product-name">
-                                    <a href="single-product.html" title="Fusce aliquam">{{$product->name}}</a>
+                                    <a href="single-product.html" title="{{$product->name}}">{{$product->name}}</a>
                                 </div>
                                 <div class="price-rating">                                  
                                     <span>{{$product->price}}</span>
                                 </div>
                                 <div class="actions">
-                                    <button type="submit" class="cart-btn" title="Add to cart">add to cart</button>
+                                    @if (Auth::guest())
+                                        <button type="button" class="cart-btn" title="Add to cart" onclick="showLoginAlert()">add to cart</button>
+                                        <span id="login-message" style="display: none;">Bạn cần đăng nhập</span>
+                                    @else
+                                        <button type="submit" class="cart-btn" title="Add to cart">add to cart</button>
+                                    @endif
                                     <ul class="add-to-link">
                                         <li><a href="{{route('products.showProductDetail', ['id' => $product->id]) }}"> <i class="fa fa-search"></i></a></li>
                                         <li><a href="#"> <i class="fa fa-heart-o"></i></a></li>               
@@ -152,11 +157,15 @@
                                     <span>{{$product->price}}</span>
                                 </div>
                                 <div class="actions">
-                                    <button type="submit" class="cart-btn" title="Add to cart">add to cart</button>
+                                    @if (Auth::guest())
+                                        <button type="button" class="cart-btn" title="Add to cart" onclick="showLoginAlert()">add to cart</button>
+                                        <span id="login-message" style="display: none;">Bạn cần đăng nhập</span>
+                                    @else
+                                        <button type="submit" class="cart-btn" title="Add to cart">add to cart</button>
+                                    @endif
                                     <ul class="add-to-link">
-                                        <li><a class="modal-view" data-target="#productModal" data-toggle="modal" href="#"> <i class="fa fa-search"></i></a></li>
-                                        <li><a href="#"> <i class="fa fa-heart-o"></i></a></li>
-                                        <li><a href="#"> <i class="fa fa-refresh"></i></a></li>
+                                        <li><a href="{{route('products.showProductDetail', ['id' => $product->id]) }}"> <i class="fa fa-search"></i></a></li>
+                                        <li><a href="#"> <i class="fa fa-heart-o"></i></a></li>               
                                     </ul>
                                 </div>
                             </div>

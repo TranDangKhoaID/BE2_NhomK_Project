@@ -27,9 +27,13 @@ class ProductController extends Controller
              abort(404);
         }
 
-        // Trả về view single-product.blade.php và truyền dữ liệu sản phẩm
-        return view('single-product', compact('product'));
+        // Lấy danh sách sản phẩm có cùng manu_id
+            $productsWithSameManuId = Product::where('manu_id', $product->manu_id)
+            ->where('id', '!=', $product->id) // Loại bỏ sản phẩm hiện tại khỏi danh sách
+            ->get();
+
+        // Trả về view single-product.blade.php và truyền dữ liệu sản phẩm cùng danh sách sản phẩm có cùng manu_id
+        return view('single-product', compact('product', 'productsWithSameManuId'));
     }
    
-
 }

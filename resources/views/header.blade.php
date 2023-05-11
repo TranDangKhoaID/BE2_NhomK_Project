@@ -77,50 +77,36 @@
                                                 <i class="fa fa-bars"></i>
                                             </a>
                                             <ul>
-                                                <li><a href="my-account.html">my account</a></li>
-                                                <li><a href="wishlist.html">my wishlist</a></li>
-                                                <li><a href="cart.html">my cart</a></li>
-                                                <li><a href="checkout.html">Checkout</a></li>
-                                                <li><a href="blog.html">Blog</a></li>
-                                                <li><a href="">Register</a></li>
+                                                @guest
+                                                    <li><a href="{{ route('login') }}">Login</a></li>
+                                                @endguest
+                                                @auth
+                                                    <!-- Hiển thị các mục menu cho người dùng đã đăng nhập -->
+                                                    <li><a href="my-account.html">my account</a></li>
+                                                    <li><a href="wishlist.html">my wishlist</a></li>
+                                                    <li><a href="cart.html">my cart</a></li>
+                                                    <li><a href="checkout.html">Checkout</a></li>
+                                                    <li><a href="blog.html">Blog</a></li>
+                                                    <li>
+                                                    <form action="{{ route('logout') }}" method="post">
+                                                        @csrf
+                                                        <button type="submit">Logout</button>
+                                                    </form>
+                                                    </li>
+                                                @endauth
                                             </ul>
                                         </li>
                                     </ul>
                                 </div>
+                                @auth
                                 <div class="cart-menu">
                                     <ul>
                                         <li><a href="#"> <img src="{{ asset('img/icon-cart.png')}}" alt=""> <span>2</span> </a>
-                                            <div class="cart-info">
-                                                <ul>
-                                                    <li>
-                                                        <div class="{{ asset('cart-img')}}">
-                                                            <img src="{{ asset('img/cart/1.png')}}" alt="">
-                                                        </div>
-                                                        <div class="cart-details">
-                                                            <a href="#">Fusce aliquam</a>
-                                                            <p>1 x $174.00</p>
-                                                        </div>
-                                                        <div class="btn-edit"></div>
-                                                        <div class="btn-remove"></div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="cart-img">
-                                                            <img src="{{ asset('img/cart/2.png')}}" alt="">
-                                                        </div>
-                                                        <div class="cart-details">
-                                                            <a href="#">Fusce aliquam</a>
-                                                            <p>1 x $777.00</p>
-                                                        </div>
-                                                        <div class="btn-edit"></div>
-                                                        <div class="btn-remove"></div>
-                                                    </li>
-                                                </ul>
-                                                <h3>Subtotal: <span> $951.00</span></h3>
-                                                <a href="checkout.html" class="checkout">checkout</a>
-                                            </div>
+                                            
                                         </li>
                                     </ul>
                                 </div>
+                                @endauth
                             </div>
                         </div>
                     </div>

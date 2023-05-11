@@ -194,6 +194,13 @@
         <!-- main JS -->
         <script src="{{ asset('js/main.js') }}"></script>
 
+        <script>
+            // Hiển thị thông báo "Bạn cần đăng nhập"
+            function showLoginAlert() {
+                alert("Bạn cần đăng nhập");
+            }
+        </script>
+
     </body>
 
 <!-- Mirrored from preview.hasthemes.com/james-preview/james/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 11 Jan 2021 00:38:50 GMT -->

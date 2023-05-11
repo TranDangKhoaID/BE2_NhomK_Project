@@ -30,10 +30,21 @@
                                     <span>Please Register using account detail bellow.</span>
                                 </div>
                                 <div class="login-form">
-                                    <form action="#" method="post">
+                                    <form action="{{ route('auth.register') }}" method="post">
+                                        @csrf
                                         <input type="text" name="user-name" placeholder="Username">
-                                        <input type="password" name="user-password" placeholder="Password">
                                         <input name="user-email" placeholder="Email" type="email">
+                                        <input type="password" name="user-password" placeholder="Password">
+                                        <input type="password" name="confirm-password" placeholder="Confirm Password">
+                                        @if ($errors->any())
+                                            <div class="alert alert-danger">
+                                                <ul>
+                                                    @foreach ($errors->all() as $error)
+                                                        <li>{{ $error }}</li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        @endif
                                         <div class="button-box">
                                             <button type="submit" class="default-btn">Register</button>
                                         </div>

@@ -10,7 +10,6 @@
                 <div id="nivoslider" class="slides">
                     <img src="img/slider/slider-1.jpg" alt="" title="#slider-direction-1"  />
                     <img src="img/slider/slider-2.jpg" alt="" title="#slider-direction-2"  />
-                    <img src="img/slider/anime1.jpg" alt="" title="#slider-direction-1"  />
                 </div>
                 <!-- direction 1 -->
                 <div id="slider-direction-1" class="t-cn slider-direction">

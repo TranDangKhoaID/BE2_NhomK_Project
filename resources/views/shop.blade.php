@@ -31,10 +31,9 @@
                                 </div>
                                 <div class="single-sidebar-content">
                                     <ul>
-                                        <li><a href="#">Dresses (4)</a></li>
-                                        <li><a href="#">shoes (6)</a></li>
-                                        <li><a href="#">Handbags (1)</a></li>
-                                        <li><a href="#">Clothing (3)</a></li>
+                                        @foreach($protypes as $protype)
+                                        <li><a href="#">{{ $protype->type_name }}</a></li>
+                                        @endforeach
                                     </ul>
                                 </div>
                             </div>
@@ -44,13 +43,9 @@
                                 </div>
                                 <div class="single-sidebar-content">
                                     <ul>
-                                        <li><a href="#">Calvin Klein (2)</a></li>
-                                        <li><a href="#">Diesel (2)</a></li>
-                                        <li><a href="#">option value (1)</a></li>
-                                        <li><a href="#">Polo (2)</a></li>
-                                        <li><a href="#">store view (4)</a></li>
-                                        <li><a href="#">Tommy Hilfiger (2)</a></li>
-                                        <li><a href="#">will be used (1)</a></li>
+                                        @foreach($manufactures as $manufacture)
+                                        <li><a href="#">{{ $manufacture->manu_name}}</a></li>
+                                        @endforeach
                                     </ul>
                                 </div>
                             </div>
@@ -76,46 +71,19 @@
                     <div class="col-sm-9">
                         <div class="product-bar">
                             <ul class="product-navigation" role="tablist">
-                                <li role="presentation" class="active gird">
-
-                                    <a href="#gird" aria-controls="gird" role="tab" data-toggle="tab">
-                                        <span>
-                                            <img class="primary" src="img/product/grid-primary.png" alt="">
-                                            <img class="secondary" src="img/product/grid-secondary.png" alt="">
-                                        </span>
-                                        Gird
-                                    </a>
-                                </li>
-                                <li role="presentation" class="list">
-                                    <a href="#list" aria-controls="list" role="tab" data-toggle="tab">
-                                        <span>
-                                            <img class="primary" src="img/product/list-primary.png" alt="">
-                                            <img class="secondary" src="img/product/list-secondary.png" alt="">
-                                        </span>
-                                        List
-                                     </a>
-                                </li>
                             </ul>
                             <div class="sort-by">
                                 <label>Sort By</label>
-                                <select name="sort" >
-                                    <option value="#" selected >Position</option>
-                                    <option value="#">Name</option>
-                                    <option value="#">Price</option>
-                                </select>
-                                <a href="#" title="Set Descending Direction">
-                                    <img src="img/product/i_asc_arrow.gif" alt="">
-                                </a>
-                            </div>
-                            <div class="limit-product">
-                                <label>Show</label>
-                                <select name="show">
-                                    <option value="#" selected>9</option>
-                                    <option value="#">12</option>
-                                    <option value="#">24</option>
-                                    <option value="#">36</option>
-                                </select>
-                                per page
+                                <form action="{{ route('sort.products') }}" method="GET">
+                                    <select name="sort">
+                                        <option value="default" @if(request('sort') === 'default') selected @endif>Default</option>
+                                        <option value="name" @if(request('sort') === 'name') selected @endif>Name</option>
+                                        <option value="price" @if(request('sort') === 'price') selected @endif>Price</option>
+                                    </select>
+                                    <button type="submit" title="Sort">
+                                        <img src="img/product/i_asc_arrow.gif" alt="">
+                                    </button>
+                                </form>
                             </div>
                         </div>
                         <div class="row">
@@ -152,13 +120,17 @@
                             </div>
                             <div class="col-md-12">
                                 <div class="toolbar-bottom">
-                                    <ul>
-                                        <li><span>Pages:</span></li>
-                                        <li class="current"><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#"> <img src="img/product/pager_arrow_right.gif" alt=""> </a></li>
-                                    </ul>
+                                    <div class="pagination">
+                                        <ul>
+                                            <li class="disabled"><span>&laquo;</span></li>
+                                            @for ($i = 1; $i <= $products->lastPage(); $i++)
+                                                <li class="{{ ($products->currentPage() == $i) ? 'active' : '' }}">
+                                                    <a href="{{ $products->url($i) }}">{{ $i }}</a>
+                                                </li>
+                                            @endfor
+                                            <li class="disabled"><span>&raquo;</span></li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>

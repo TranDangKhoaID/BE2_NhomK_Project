@@ -21,6 +21,9 @@ Route::get('/register', function () {
 });
 Route::get('/', [ProductController::class, 'showAll']);
 Route::get('/shop', [ProductController::class, 'showAllShop']);
+Route::get('/sort', [ProductController::class, 'sortProducts'])->name('sort.products');
+
+
 Route::get('/products/{id}', [ProductController::class, 'showProductDetail'])->name('products.showProductDetail');
 
 Route::post('/register', [RegisterController::class, 'register'])->name('auth.register');

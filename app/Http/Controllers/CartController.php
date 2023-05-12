@@ -12,8 +12,14 @@ class CartController extends Controller
 
         $userId = Auth::id();
         $carts = Cart::where('user_id', $userId)->get();
+        
+        $grandTotal = 0;
 
-        return view('cart', compact('carts'));
+        foreach ($carts as $cart) {
+            $cart->subtotal = $cart->price * $cart->quantity;
+            $grandTotal += $cart->subtotal;
+        }
+        return view('cart', compact('carts','grandTotal'));
     }
     public function addToCart(Request $request)
     {
@@ -24,16 +30,32 @@ class CartController extends Controller
         $image = $request->input('image');
         $userID = $request->input('userID');
 
-        $cart = new Cart();
-        $cart->name = $name;
-        $cart->image = $image;
-        $cart->price = $price;
-        $cart->quantity = $quantity;
-        $cart->user_id = $userID;
-        $cart->product_id = $productId;
- 
-        $cart->save();
+        // Kiểm tra sản phẩm đã tồn tại trong giỏ hàng hay chưa
+        $existingCartItem = Cart::where('user_id', $userID)
+                                ->where('product_id', $productId)
+                                ->first();
 
-        return redirect()->back()->with('success', 'Product added to cart successfully.');
+        if ($existingCartItem) {
+            // Nếu sản phẩm đã tồn tại, cộng dồn số lượng sản phẩm
+            $existingCartItem->quantity += $quantity;
+            $existingCartItem->subtotal = $existingCartItem->quantity * $price;
+            $existingCartItem->save();
+
+            return redirect()->back()->with('success', 'Product quantity updated in cart successfully.');
+        } else {
+            // Nếu sản phẩm chưa tồn tại, thêm sản phẩm vào giỏ hàng
+            $cart = new Cart();
+            $cart->name = $name;
+            $cart->image = $image;
+            $cart->price = $price;
+            $cart->quantity = $quantity;
+            $cart->user_id = $userID;    
+            $cart->product_id = $productId;
+            $cart->subtotal = $cart->quantity * $price;
+        
+            $cart->save();
+
+            return redirect()->back()->with('success', 'Product added to cart successfully.');
+        }
     }
 }

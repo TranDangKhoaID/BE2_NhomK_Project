@@ -58,4 +58,26 @@ class CartController extends Controller
             return redirect()->back()->with('success', 'Product added to cart successfully.');
         }
     }
+    public function removeFromCart(Request $request)
+    {
+        $productId = $request->input('product_id');
+        $userID = $request->input('userID');
+        
+        $cart = Cart::where('user_id', $userID)->first();
+
+        if ($cart) {
+            // Tìm và xóa sản phẩm khỏi giỏ hàng
+            $cartItem = Cart::where('user_id', $userID)
+                ->where('product_id', $productId)
+                ->delete();
+            
+            if ($cartItem) {
+                return redirect()->back()->with('success', 'Product removed from cart.');
+            }
+        }
+        
+        return redirect()->back()->with('error', 'Product not found in cart.');
+    }
+
+
 }

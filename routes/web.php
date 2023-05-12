@@ -17,11 +17,12 @@ use App\Http\Controllers\CartController;
 |
 */
 
-Route::get('/cart', function () {
-    return view('cart');
+Route::get('/shop-list', function () {
+    return view('shop-list');
 });
 Route::get('/', [ProductController::class, 'showAll']);
-Route::get('/shop', [ProductController::class, 'showAllShop']);
+
+Route::get('/shop', [ProductController::class, 'showAllShop'])->name('shop');
 Route::get('/sort', [ProductController::class, 'sortProducts'])->name('sort.products');
 
 
@@ -37,4 +38,9 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/cart', [CartController::class, 'showCartForm'])->name('cart');
 Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('cart.add');
 
+Route::post('/cart/remove/{productId}', [CartController::class, 'removeFromCart'])->name('cart.remove');
+
+
+
 Route::get('/index', [MyController::class, 'index'])->name('index');
+

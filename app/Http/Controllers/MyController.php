@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Session;
 use App\Models\Product;
+use App\Models\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,8 +15,15 @@ class MyController extends Controller
         $products = Product::all();
         $loggedInUserId = Auth::id();
 
-        // Trả về view index.blade.php và truyền biến products vào view
-        return view('index', ['products' => $products, 'loggedInUserId' => $loggedInUserId]);
+        $carts = Cart::where('user_id', $loggedInUserId)->get();
+        $productCount = [];
+
+        foreach ($products as $product) {
+            $count = $carts->where('product_id', $product->id)->count();
+            $productCount[$product->id] = $count;
+        }
+
+        return view('index', compact('products', 'loggedInUserId', 'productCount'));
 
     }
 }

@@ -46,16 +46,24 @@
                             </div>
                             <div class="cart-item">                    
                                 <div class="single-cart">
+                                    <form method="POST" action="{{ route('cart.add') }}">
+                                        @csrf
                                     <div class="cart-plus-minus">
                                         <label>Qty: </label>
-                                        <input class="cart-plus-minus-box" type="text" name="qtybutton" value="0">
+                                        <input class="cart-plus-minus-box" type="text" name="quantity" value="1">
                                     </div>
                                     @if (Auth::guest())
                                         <button type="button" class="cart-btn" title="Add to cart" onclick="showLoginAlert()">add to cart</button>
                                         <span id="login-message" style="display: none;">Bạn cần đăng nhập</span>
                                     @else
-                                        <button type="submit" class="cart-btn" title="Add to cart">add to cart</button>
-                                    @endif
+                                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                        <input type="hidden" name="name" value="{{ $product->name }}">
+                                        <input type="hidden" name="price" value="{{ $product->price }}">
+                                        <input type="hidden" name="image" value="{{ $product->image }}">
+                                        <input type="hidden" name="userID" value="{{ $loggedInUserId }}">
+                                        <button type="submit" class="cart-btn" title="Add to cart">add to cart</button> 
+                                    </form>
+                                   @endif
                                 </div>
                             </div>
                         </div>

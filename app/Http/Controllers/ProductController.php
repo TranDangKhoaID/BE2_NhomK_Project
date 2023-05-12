@@ -32,7 +32,7 @@ class ProductController extends Controller
     public function sortProducts(Request $request)
     {
         $sort = $request->input('sort');
-        
+        $loggedInUserId = Auth::id();
         // Xử lý sắp xếp dựa trên giá trị của biến $sort
         if ($sort === 'name') {
             $products = Product::orderBy('name')->paginate(6); // Phân trang với 6 sản phẩm/trang
@@ -45,7 +45,7 @@ class ProductController extends Controller
         $manufactures = Manufacture::all();
         $protypes = Protype::all();
 
-        return view('shop', compact('products', 'manufactures', 'protypes'));
+        return view('shop', compact('products', 'manufactures', 'protypes','loggedInUserId'));
     }
 
 
@@ -53,7 +53,7 @@ class ProductController extends Controller
     {
         // Lấy thông tin sản phẩm từ CSDL dựa trên $id
         $product = Product::find($id);
-
+        $loggedInUserId = Auth::id();
         // Kiểm tra xem sản phẩm có tồn tại hay không
         if (!$product) {
              abort(404);
@@ -65,7 +65,7 @@ class ProductController extends Controller
             ->get();
 
         // Trả về view single-product.blade.php và truyền dữ liệu sản phẩm cùng danh sách sản phẩm có cùng manu_id
-        return view('single-product', compact('product', 'productsWithSameManuId'));
+        return view('single-product', compact('product', 'productsWithSameManuId','loggedInUserId'));
     }
    
 }

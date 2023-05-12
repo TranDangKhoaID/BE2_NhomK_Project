@@ -57,9 +57,14 @@
                                                 <span>{{$cart->subtotal }}</span>
                                             </td>
                                             <td class="remove-icon">
-                                                <a href="#">
+                                            <form action="{{ route('cart.remove', ['productId' => $cart->product_id]) }}" method="POST">
+                                                @csrf
+                                                <input type="hidden" name="product_id" value="{{ $cart->product_id }}">
+                                                <input type="hidden" name="userID" value="{{ $cart->user_id }}">
+                                                <button type="submit" class="btn btn-danger">
                                                     <img src="img/cart/btn_remove.png" alt="">
-                                                </a>
+                                                </button>
+                                            </form>
                                             </td>        
                                         </tr>       
                                    @endforeach    

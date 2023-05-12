@@ -102,8 +102,7 @@
                                 @auth
                                 <div class="cart-menu">
                                     <ul>
-                                        <li><a href="{{ route('cart') }}"> <img src="{{ asset('img/icon-cart.png')}}" alt=""> <span>2</span> </a>
-                                            
+                                        <li><a href="{{ route('cart') }}"> <img src="{{ asset('img/icon-cart.png')}}" alt=""></a>   
                                         </li>
                                     </ul>
                                 </div>
@@ -127,8 +126,8 @@
                             <div class="mainmenu">
                                 <nav>
                                     <ul>                                      
-                                        <li><a href="/">Home</a></li>
-                                        <li><a href="/shop">Shops</a></li>
+                                        <li><a href="{{ route('index') }}">Home</a></li>
+                                        <li><a href="{{ route('shop') }}">Shop</a></li>
                                         <li><a href="/shop">Blogs</a></li> 
                                         <li><a href="/shop">About us</a></li> 
                                     </ul>

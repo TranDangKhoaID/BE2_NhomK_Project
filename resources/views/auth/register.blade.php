@@ -30,7 +30,7 @@
                                     <span>Please Register using account detail bellow.</span>
                                 </div>
                                 <div class="login-form">
-                                    <form action="{{ route('auth.register') }}" method="post">
+                                    <form action="{{ route('register') }}" method="post">
                                         @csrf
                                         <input type="text" name="user-name" placeholder="Username">
                                         <input name="user-email" placeholder="Email" type="email">

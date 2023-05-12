@@ -23,9 +23,7 @@
                             <table class="table-bordered table table-hover">
                                 <thead>
                                     <tr>
-                                        <th class="cart-item-img"></th>
                                         <th class="cart-product-name">Product Name</th>
-                                        <th class="edit"></th>
                                         <th class="move-wishlist">Move to Wishlist</th>
                                         <th class="unit-price">Unit Price</th>
                                         <th class="quantity">Qty</th>
@@ -33,98 +31,38 @@
                                         <th class="remove-icon"></th>
                                     </tr>
                                 </thead>
-                                <tbody class="text-center">
-                                    <tr>
+                                
+                                <tbody class="text-center"> 
+                                    @foreach ($carts as $cart)             
+                                        <tr>
                                         <td class="cart-item-img">
                                             <a href="single-product.html">
-                                                <img src="img/cart/3.png" alt="">
+                                                <img src="{{ asset('img/product/' . $cart->image) }}" alt="" width="70" height="70">
                                             </a>
                                         </td>
-                                        <td class="cart-product-name">
-                                            <a href="single-product.html">Cras neque metus</a>
-                                        </td>
-                                        <td class="edit">
-                                            <a href="#">Edit</a>
-                                        </td>
-                                        <td class="move-wishlist">
-                                            <a href="#">Move</a>
-                                        </td>
-                                        <td class="unit-price">
-                                            <span>$174.00</span>
-                                        </td>
-                                        <td class="quantity">
-                                            <span>1</span>
-                                        </td>
-                                        <td class="subtotal">
-                                            <span>$174.00</span>
-                                        </td>
-                                        <td class="remove-icon">
-                                            <a href="#">
-                                                <img src="img/cart/btn_remove.png" alt="">
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="cart-item-img">
-                                            <a href="single-product.html">
-                                                <img src="img/cart/4.png" alt="">
-                                            </a>
-                                        </td>
-                                        <td class="cart-product-name">
-                                            <a href="single-product.html">Cras neque metus</a>
-                                        </td>
-                                        <td class="edit">
-                                            <a href="#">Edit</a>
-                                        </td>
-                                        <td class="move-wishlist">
-                                            <a href="#">Move</a>
-                                        </td>
-                                        <td class="unit-price">
-                                            <span>$174.00</span>
-                                        </td>
-                                        <td class="quantity">
-                                            <span>1</span>
-                                        </td>
-                                        <td class="subtotal">
-                                            <span>$174.00</span>
-                                        </td>
-                                        <td class="remove-icon">
-                                            <a href="#">
-                                                <img src="img/cart/btn_remove.png" alt="">
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="cart-item-img">
-                                            <a href="single-product.html">
-                                                <img src="img/cart/5.png" alt="">
-                                            </a>
-                                        </td>
-                                        <td class="cart-product-name">
-                                            <a href="single-product.html">Cras neque metus</a>
-                                        </td>
-                                        <td class="edit">
-                                            <a href="#">Edit</a>
-                                        </td>
-                                        <td class="move-wishlist">
-                                            <a href="#">Move</a>
-                                        </td>
-                                        <td class="unit-price">
-                                            <span>$275.00</span>
-                                        </td>
-                                        <td class="quantity">
-                                            <span>2</span>
-                                        </td>
-                                        <td class="subtotal">
-                                            <span>$350.00</span>
-                                        </td>
-                                        <td class="remove-icon">
-                                            <a href="#">
-                                                <img src="img/cart/btn_remove.png" alt="">
-                                            </a>
-                                        </td>
-                                    </tr>
-                                </tbody>
+                                            <td class="cart-product-name">
+                                                <a href="single-product.html">{{$cart->name}}</a>
+                                            </td>
+                                            <td class="move-wishlist">
+                                                <a href="#">Move</a>
+                                            </td>
+                                            <td class="unit-price">
+                                                <span>{{$cart->price}}</span>
+                                            </td>
+                                            <td class="quantity">
+                                                <span>{{$cart->quantity}}</span>
+                                            </td>
+                                            <td class="subtotal">
+                                                <span>$174.00</span>
+                                            </td>
+                                            <td class="remove-icon">
+                                                <a href="#">
+                                                    <img src="img/cart/btn_remove.png" alt="">
+                                                </a>
+                                            </td>        
+                                        </tr>       
+                                   @endforeach    
+                                </tbody>    
                             </table>
                             <div class="shopping-button">
                                 <div class="continue-shopping">
@@ -136,7 +74,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>   
                 </div>
                 <div class="row">
                     <div class="col-sm-4">

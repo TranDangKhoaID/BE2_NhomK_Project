@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Manufacture;
 use App\Models\Protype;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 
@@ -14,7 +16,8 @@ class ProductController extends Controller
     public function showAll()
     {
         $products = Product::all();
-        return view('index', compact('products'));
+        $loggedInUserId = Auth::id();
+        return view('index', compact('products','loggedInUserId'));
     }
     public function showAllShop()
     {
@@ -22,9 +25,8 @@ class ProductController extends Controller
         $products = Product::paginate(6);
         $manufactures = Manufacture::all();
         $protypes = Protype::all();
-
-        
-        return view('shop', compact('products','manufactures','protypes'));
+        $loggedInUserId = Auth::id();
+        return view('shop', compact('products','manufactures','protypes','loggedInUserId'));
     }
     //sap xep sp
     public function sortProducts(Request $request)

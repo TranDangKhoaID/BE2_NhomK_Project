@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Session;
 
 class RegisterController extends Controller
 {
+    public function showRegisterForm(){
+        {
+            return view('auth.register');
+        }
+    }
     public function register(Request $request)
     {
         // Kiểm tra mật khẩu và email

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckOutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +18,8 @@ use App\Http\Controllers\CartController;
 |
 */
 
-Route::get('/shop-list', function () {
-    return view('shop-list');
+Route::get('/account', function () {
+    return view('auth.my-account');
 });
 Route::get('/', [ProductController::class, 'showAll']);
 
@@ -37,8 +38,10 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/cart', [CartController::class, 'showCartForm'])->name('cart');
 Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('cart.add');
-
 Route::post('/cart/remove/{productId}', [CartController::class, 'removeFromCart'])->name('cart.remove');
+
+Route::get('/cart/checkout', [CheckOutController::class, 'checkout'])->name('cart.checkout');
+Route::post('/cart/checkout/bill', [CheckOutController::class, 'processCheckout'])->name('cart.processCheckout');
 
 
 

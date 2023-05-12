@@ -19,7 +19,6 @@ class CreateCartsTable extends Migration
             $table->string('image',150);
             $table->double('price');
             $table->double('quantity');
-            $table->double('billing_id');
             $table->double('user_id');
             $table->double('product_id');
             $table->double('subtotal');

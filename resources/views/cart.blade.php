@@ -41,6 +41,11 @@
                                                 <img src="{{ asset('img/product/' . $cart->image) }}" alt="" width="70" height="70">
                                             </a>
                                         </td>
+                                            @if (session('error'))
+                                                <div class="alert alert-danger">
+                                                    {{ session('error') }}
+                                                </div>
+                                            @endif
                                             <td class="cart-product-name">
                                                 <a href="single-product.html">{{$cart->name}}</a>
                                             </td>
@@ -96,14 +101,25 @@
                         <div class="totals">
                             <h3>Grand Total <span>{{$grandTotal}} VND</span></h3>
                             <div class="shopping-button">
-                                <button type="submit">proceed to checkout</button>
+                            <form action="{{ route('cart.checkout')}}" method="GET">
+                                @csrf
+                                <div class="shopping-button">
+                                    <button type="submit">proceed to checkout</button>
+                                </div>
+                            </form>
                             </div>
                             <a href="#">Checkout with Multiple Addresses</a>
                         </div>
                     </div>
+                    @if (session('error'))
+                        <div class="alert alert-danger">
+                            {{ session('error') }}
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>
+        
         <!-- cart item area end -->
 @section('footer')
     @include('footer')

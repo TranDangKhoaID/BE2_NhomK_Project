@@ -23,34 +23,6 @@
                             <div class="sidebar-title">
                                 <h2>Shopping Options</h2>
                             </div>
-                            <div class="single-sidebar">
-                                <div class="single-sidebar-title">
-                                    <h3>Category</h3>
-                                </div>
-                                <div class="single-sidebar-content">
-                                    <ul>
-                                        <li><a href="#">Dresses (4)</a></li>
-                                        <li><a href="#">shoes (6)</a></li>
-                                        <li><a href="#">Handbags (1)</a></li>
-                                        <li><a href="#">Clothing (3)</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="single-sidebar">
-                                <div class="single-sidebar-title">
-                                    <h3>Color</h3>
-                                </div>
-                                <div class="single-sidebar-content">
-                                    <ul>
-                                        <li><a href="#">Black (2)</a></li>
-                                        <li><a href="#">Blue (2)</a></li>
-                                        <li><a href="#">Green (4)</a></li>
-                                        <li><a href="#">Grey (2)</a></li>
-                                        <li><a href="#">Red (2)</a></li>
-                                        <li><a href="#">White (2)</a></li>
-                                    </ul>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <div class="col-sm-9">
@@ -74,79 +46,6 @@
                                                     </div>
                                                     <div class="order-history">
                                                         <p>You have not placed any orders.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingTwo">
-                                        <h4 class="panel-title">
-                                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                <i class="fa fa-file-o"></i>
-                                                My credit slips
-                                            </a>
-                                        </h4>
-                                    </div>
-                                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                                        <div class="panel-body">
-                                            <div class="row">
-                                                <div class="col-sm-12">
-                                                    <div class="account-title">
-                                                        <h4>Credit slips you have received after canceled orders. </h4>
-                                                    </div>
-                                                    <div class="credit-slids">
-                                                        <p>You have not received any credit slips.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingThree">
-                                        <h4 class="panel-title">
-                                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                <i class="fa fa-building-o"></i>
-                                                My addresses
-                                            </a>
-                                        </h4>
-                                    </div>
-                                    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                                        <div class="panel-body">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="my-address">
-                                                        <p>Please configure your default billing and delivery addresses when placing an order. You may also add additional addresses, which can be useful for sending gifts or receiving an order at your office.</p>
-                                                        <div class="account-title">
-                                                            <h4>Your addresses are listed below. </h4>
-                                                        </div>
-                                                        <p>Be sure to update your personal information if it has changed.</p>
-                                                        <div class="row">
-                                                            <div class="col-md-6 col-sm-12">
-                                                                <div class="account-address">
-                                                                    <ul>
-                                                                        <li class="address-menu-title">My address</li>
-                                                                        <li>Hridoy roy</li>
-                                                                        <li>Expert</li>
-                                                                        <li>Bristol</li>
-                                                                        <li>Manchester1</li>
-                                                                        <li>Bristol</li>
-                                                                        <li>United Kingdom</li>
-                                                                        <li>2334234</li>
-                                                                        <li>454565768678</li>
-                                                                        <li>
-                                                                            <button> update </button>
-                                                                            <button> submit </button>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="add-address">
-                                                            <button>add new address</button>
-                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -239,32 +138,6 @@
                                                             <div class="save-button">
                                                                 <button>save</button>
                                                             </div>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingFive">
-                                        <h4 class="panel-title">
-                                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                                <i class="fa fa-heart"></i>
-                                                My wishlists
-                                            </a>
-                                        </h4>
-                                    </div>
-                                    <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
-                                        <div class="panel-body">
-                                            <div class="col-sm-12">
-                                                <div class="wishlist-container">
-                                                    <h3>New Wishlist</h3>
-                                                    <form action="#">
-                                                        <label>Name</label>
-                                                        <input type="text">
-                                                        <div class="save-button">
-                                                            <button type="submit">save</button>
                                                         </div>
                                                     </form>
                                                 </div>

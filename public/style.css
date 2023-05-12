@@ -3352,6 +3352,9 @@ button.check-button:hover,
 .single-product-img.tab-content {
   min-height: 560px;
 }
+.error-message {
+    color: red;
+}
 
 
 

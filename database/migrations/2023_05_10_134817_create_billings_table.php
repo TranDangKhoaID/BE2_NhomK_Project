@@ -15,11 +15,14 @@ class CreateBillingsTable extends Migration
     {
         Schema::create('billings', function (Blueprint $table) {
             $table->id();
-            $table->string('name',50);
-            $table->string('email',50);
-            $table->string('address',50);
+            $table->string('user_id',50);
+            $table->string('fname',50);
+            $table->string('lname',50);
             $table->double('phone',10);
-            $table->string('saysomething',50);
+            $table->string('address',50);
+            $table->string('city',50);
+            $table->string('saysomething',50)->nullable();;
+            $table->double('amount');
             $table->timestamps();
         });
     }

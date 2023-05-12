@@ -23,7 +23,7 @@ class LoginController extends Controller
         }
 
         // Đăng nhập thất bại, chuyển hướng trở lại trang login với thông báo lỗi
-        return redirect()->back()->withErrors(['auth.login' => 'Đăng nhập không thành công. Vui lòng kiểm tra lại thông tin đăng nhập.']);
+        return redirect()->back()->withInput()->withErrors(['auth.login' => 'Đăng nhập không thành công. Vui lòng kiểm tra lại thông tin đăng nhập.']);
     }
     public function logout()
     {

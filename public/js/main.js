@@ -235,3 +235,5 @@ upsell-slider
     $('[data-toggle="tooltip"]').tooltip();
 
 })(jQuery);
+
+

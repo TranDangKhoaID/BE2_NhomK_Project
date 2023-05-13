@@ -30,9 +30,15 @@
                                     <span>Please login using account detail bellow.</span>
                                 </div>
                                 <div class="login-form">
-                                    <form action="#" method="post">
-                                        <input type="text" name="user-name" placeholder="Username">
-                                        <input type="password" name="user-password" placeholder="Password">
+                                    <form action="{{ route('login') }}" method="post">
+                                        @csrf
+                                        <input type="text" name="email" placeholder="Email">
+                                        <input type="password" name="password" placeholder="Password">
+                                        @if (Session::has('success'))
+                                            <div class="alert alert-success">
+                                                {{ Session::get('success') }}
+                                            </div>
+                                        @endif
                                         <div class="button-box">
                                             <div class="login-toggle-btn">
                                                 <input type="checkbox" id="remember">

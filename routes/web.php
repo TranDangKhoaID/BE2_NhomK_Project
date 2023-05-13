@@ -7,6 +7,9 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckOutController;
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\Admin\AdminLoginController;
+use App\Http\Controllers\Admin\AdminRegisterController;
+use App\Http\Controllers\Admin\AdminHomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,8 +22,19 @@ use App\Http\Controllers\AccountController;
 |
 */
 
-Route::get('/billing', function () {
-    return view('billing');
+Route::get('/admin.register', [AdminRegisterController::class, 'index'])->name('admin.register');
+Route::post('/admin.register', [AdminRegisterController::class, 'AdminRegister'])->name('admin.register');
+
+Route::get('/admin.login', [AdminLoginController::class, 'index'])->name('admin.login');
+Route::post('/admin.login', [AdminLoginController::class, 'login'])->name('login.submit');
+Route::post('/admin.logout', [AdminLoginController::class, 'logout'])->name('admin.logout');
+
+Route::get('/admin.index', [AdminHomeController::class, 'index'])->name('admin.index');
+
+
+
+Route::get('/details', function () {
+    return view('blog-details');
 });
 Route::get('/', [ProductController::class, 'showAll']);
 

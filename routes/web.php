@@ -6,6 +6,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckOutController;
+use App\Http\Controllers\AccountController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,8 +19,8 @@ use App\Http\Controllers\CheckOutController;
 |
 */
 
-Route::get('/account', function () {
-    return view('auth.my-account');
+Route::get('/billing', function () {
+    return view('billing');
 });
 Route::get('/', [ProductController::class, 'showAll']);
 
@@ -42,6 +43,9 @@ Route::post('/cart/remove/{productId}', [CartController::class, 'removeFromCart'
 
 Route::get('/cart/checkout', [CheckOutController::class, 'checkout'])->name('cart.checkout');
 Route::post('/cart/checkout/bill', [CheckOutController::class, 'processCheckout'])->name('cart.processCheckout');
+
+Route::get('/auth.my-account', [AccountController::class, 'showAcountForm'])->name('account');
+Route::get('/auth.my-account/billing/{id}', [AccountController::class, 'showBillingForm'])->name('billing');
 
 
 

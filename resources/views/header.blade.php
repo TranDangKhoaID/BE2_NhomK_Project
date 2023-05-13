@@ -83,10 +83,9 @@
                                                 @endguest
                                                 @auth
                                                     <!-- Hiển thị các mục menu cho người dùng đã đăng nhập -->
-                                                    <li><a href="my-account.html">my account</a></li>
+                                                    <li><a href="{{ route('account') }}">my account</a></li>
                                                     <li><a href="wishlist.html">my wishlist</a></li>
-                                                    <li><a href="cart.html">my cart</a></li>
-                                                    <li><a href="checkout.html">Checkout</a></li>
+                                                    <li><a href="{{ route('cart') }}">my cart</a></li>
                                                     <li><a href="blog.html">Blog</a></li>
                                                     <li>
                                                     <form action="{{ route('logout') }}" method="post">

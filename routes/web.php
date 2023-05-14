@@ -10,6 +10,7 @@ use App\Http\Controllers\AccountController;
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\AdminRegisterController;
 use App\Http\Controllers\Admin\AdminHomeController;
+use App\Http\Controllers\Admin\AdminUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,14 +28,20 @@ Route::post('/admin.register', [AdminRegisterController::class, 'AdminRegister']
 
 Route::get('/admin.login', [AdminLoginController::class, 'index'])->name('admin.login');
 Route::post('/admin.login', [AdminLoginController::class, 'login'])->name('login.submit');
-Route::post('/admin.logout', [AdminLoginController::class, 'logout'])->name('admin.logout');
-
 Route::get('/admin.index', [AdminHomeController::class, 'index'])->name('admin.index');
+Route::post('/admin.logout', [AdminLoginController::class, 'logout'])->name('admin.logout');
+// Route::middleware('auth.admin')->group(function () {
+    
+// });
+
+
+Route::get('/admin.index/users', [AdminUserController::class, 'index'])->name('admin.users');
+Route::get('/admin.index/users/{id}/block', [AdminUserController::class, 'blockUser'])->name('admin.users.block');
 
 
 
-Route::get('/details', function () {
-    return view('blog-details');
+Route::get('/user', function () {
+    return view('admin.users');
 });
 Route::get('/', [ProductController::class, 'showAll']);
 

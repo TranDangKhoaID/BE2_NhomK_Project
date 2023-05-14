@@ -88,10 +88,11 @@
                                                     <li><a href="{{ route('cart') }}">my cart</a></li>
                                                     <li><a href="blog.html">Blog</a></li>
                                                     <li>
-                                                    <form action="{{ route('logout') }}" method="post">
+                                                    <form action="{{ route('auth.logout') }}" method="post">
                                                         @csrf
-                                                        <button type="submit">Logout</button>
+                                                        <button type="submit">Đăng xuất</button>
                                                     </form>
+
                                                     </li>
                                                 @endauth
                                             </ul>

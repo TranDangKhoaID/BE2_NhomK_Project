@@ -27,13 +27,15 @@ Route::get('/admin.register', [AdminRegisterController::class, 'index'])->name('
 Route::post('/admin.register', [AdminRegisterController::class, 'AdminRegister'])->name('admin.register');
 
 Route::get('/admin.login', [AdminLoginController::class, 'index'])->name('admin.login');
-Route::post('/admin.login', [AdminLoginController::class, 'login'])->name('login.submit');
-Route::get('/admin.index', [AdminHomeController::class, 'index'])->name('admin.index');
+Route::post('/admin.login', [AdminLoginController::class, 'login'])->name('admin.login.submit');
+// Route::get('/admin.index', [AdminHomeController::class, 'index'])->name('admin.index');
 Route::post('/admin.logout', [AdminLoginController::class, 'logout'])->name('admin.logout');
-// Route::middleware('auth.admin')->group(function () {
-    
-// });
-
+// Các tuyến của người dùng quản trị
+Route::middleware(['admin'])->group(function () {
+    // Trang chủ admin (index)
+    Route::get('/admin.index', [AdminHomeController::class, 'index'])->name('admin.index');
+    // Các tuyến khác của người dùng quản trị...
+});
 
 Route::get('/admin.index/users', [AdminUserController::class, 'index'])->name('admin.users');
 Route::get('/admin.index/users/{id}/block', [AdminUserController::class, 'blockUser'])->name('admin.users.block');

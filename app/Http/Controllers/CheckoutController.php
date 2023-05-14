@@ -12,6 +12,9 @@ class CheckoutController extends Controller
 {
     public function checkout()
     {
+        if (!Auth::check()) {
+            return redirect()->route('login'); // Chuyển hướng đến trang đăng nhập
+        }
         // Lấy thông tin giỏ hàng từ database
         $userId = Auth::id();
         $carts = Cart::where('user_id', $userId)->get();// Lấy các sản phẩm trong giỏ hàng của user_id

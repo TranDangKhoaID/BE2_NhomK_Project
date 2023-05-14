@@ -6,13 +6,18 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Admin;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
 
 class AdminRegisterController extends Controller
 {
     public function index(){
-        {
-            return view('admin.register');
+        
+        // Kiểm tra nếu người dùng đã đăng nhập
+        if (Auth::guard('admin')->check()) {
+            return redirect()->route('admin.index');
         }
+
+        return view('admin.register');    
     }
     public function AdminRegister(Request $request)
     {

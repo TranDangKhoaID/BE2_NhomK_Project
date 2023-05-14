@@ -10,6 +10,9 @@ class CartController extends Controller
 {
     public function showCartForm(){
 
+        if (!Auth::check()) {
+            return redirect()->route('login'); // Chuyển hướng đến trang đăng nhập
+        }
         $userId = Auth::id();
         $carts = Cart::where('user_id', $userId)->get();
         

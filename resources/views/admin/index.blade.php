@@ -77,7 +77,13 @@
                             
                         </div>
                     </div>
+                    @if(Auth::guard('admin')->check())
+                        <p>Admin dùng đã đăng nhập</p>
+                    @else
+                        <p>Admin dùng chưa đăng nhập</p>
+                    @endif
                 </main>
+                
 @section('admin.footer')
     @include('admin.footer')
 @endsection

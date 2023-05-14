@@ -14,16 +14,22 @@ class AdminLoginController extends Controller
     public function index()
     {
         // Xử lý logic cho trang đăng nhập của quản trị viên
+        // Kiểm tra nếu người dùng đã đăng nhập
+        if (Auth::guard('admin')->check()) {
+            return redirect()->route('admin.index');
+        }
         return view('admin.login');
     }
 
     public function login(Request $request)
     {
-        $admin = Admin::where('email', $request->email)->first();
 
-        if ($admin && Hash::check($request->password, $admin->password)) {
-            // Đăng nhập thành công, lưu phiên đăng nhập và chuyển hướng đến trang quản trị hoặc dashboard
-            Auth::login($admin);
+        
+
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::guard('admin')->attempt($credentials)) {
+            // Đăng nhập thành công, chuyển hướng đến trang index
             return redirect()->route('admin.index');
         }else {
             // Đăng nhập không thành công, xử lý thông báo lỗi và chuyển hướng trở lại trang đăng nhập

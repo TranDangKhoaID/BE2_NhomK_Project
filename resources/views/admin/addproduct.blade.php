@@ -56,7 +56,7 @@
                 </div>
                 <!-- Submit button -->
                 <button type="submit" class="btn btn-primary btn-block mb-4">ADD</button>
-                </form>
+            </form>
         </div>
     </div>
     </main>

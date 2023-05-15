@@ -95,4 +95,16 @@ class AdminProductController extends Controller
         // Chuyển hướng về trang danh sách sản phẩm hoặc trang chi tiết sản phẩm
         return redirect()->route('admin.editproducts', ['id' => $product->id])->with('success', 'Sản phẩm đã được cập nhật thành công.');
     }
+    public function deleteProduct($id)
+    {
+        // Tìm sản phẩm cần xóa
+        $product = Product::findOrFail($id);
+
+        // Xóa sản phẩm
+        $product->delete();
+
+        // Chuyển hướng về trang danh sách sản phẩm hoặc trang khác
+        return redirect()->route('admin.products')->with('success', 'Sản phẩm đã được xóa thành công.');
+    }
+
 }

@@ -12,6 +12,8 @@ use App\Http\Controllers\Admin\AdminRegisterController;
 use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Admin\AdminProductController;
+use App\Http\Controllers\Admin\AdminManuController;
+use App\Http\Controllers\Admin\AdminProtypeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,12 +50,35 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/admin.index/editproducts/{id}', [AdminProductController::class, 'indexEdit'])->name('admin.editproducts');
     Route::put('/admin.index/editproducts/{id}', [AdminProductController::class, 'editProduct'])->name('admin.update');
     //delete product
+    Route::delete('/admin.index/deleteproduct/{id}', [AdminProductController::class, 'deleteProduct'])->name('admin.deleteproduct');
+
+    //manufactures admin
+    Route::get('/admin.index/manufactures', [AdminManuController::class, 'index'])->name('admin.manufactures');
+    //add manufacture
+    Route::get('/admin.index/addmanufacture', [AdminManuController::class, 'indexAdd'])->name('admin.addmanufacture');
+    Route::post('/admin.index/addmanufacture', [AdminManuController::class, 'addManu'])->name('admin.storeManu');
+    //edit manu
+    Route::get('/admin.index/editmanus/{manu_id}', [AdminManuController::class, 'indexEdit'])->name('admin.editmanufacture');
+    Route::post('/admin.index/editmanus/{manu_id}', [AdminManuController::class, 'editManu'])->name('admin.editmanu');
+    //delete manu
+    Route::delete('/admin.index/deletemanu/{manu_id}', [AdminManuController::class, 'deleteManu'])->name('admin.deletemanu');
+
+    //protype admin
+    Route::get('/admin.index/protypes', [AdminProtypeController::class, 'index'])->name('admin.protypes');
+    //add 
+    Route::get('/admin.index/addprotype', [AdminProtypeController::class, 'indexAdd'])->name('admin.addprotype');
+    Route::post('/admin.index/addprotype', [AdminProtypeController::class, 'addManu'])->name('admin.storeType');
+    //edit 
+    Route::get('/admin.index/edittypes/{type_id}', [AdminProtypeController::class, 'indexEdit'])->name('admin.editprotype');
+    Route::post('/admin.index/edittypes/{type_id}', [AdminProtypeController::class, 'editManu'])->name('admin.editprotype');
+    //delete 
+    Route::delete('/admin.index/deletetype/{type_id}', [AdminProtypeController::class, 'deleteManu'])->name('admin.deletetype');
 });
 
 
 
-Route::get('/products', function () {
-    return view('admin.products');
+Route::get('/manu', function () {
+    return view('admin.addmanufacture');
 });
 
 Route::get('/auth.register', [RegisterController::class, 'showRegisterForm'])->name('register');

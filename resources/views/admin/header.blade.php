@@ -61,7 +61,8 @@
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="{{ route('admin.products')}}">Products</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
+                                    <a class="nav-link" href="{{ route('admin.manufactures')}}">Manufactures</a>
+                                    <a class="nav-link" href="{{ route('admin.protypes')}}">Protypes</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
@@ -72,6 +73,12 @@
                             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                    <a class="nav-link" href="{{ route('admin.addproduct')}}">ADD Product</a>
+                                </nav>
+                                <nav class="sb-sidenav-menu-nested nav">
+                                   <a class="nav-link" href="{{ route('admin.addmanufacture')}}">ADD Manufactures</a>
+                                </nav>
+                                <nav class="sb-sidenav-menu-nested nav">
+                                   <a class="nav-link" href="{{ route('admin.addprotype')}}">ADD Protype</a>
                                 </nav>
                             </div>
                             <div class="sb-sidenav-menu-heading">Addons</div>

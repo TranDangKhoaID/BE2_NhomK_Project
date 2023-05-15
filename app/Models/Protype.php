@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Protype extends Model
 {
-    use HasFactory;
-    
+    public $timestamps = false;
+    protected $primaryKey = 'type_id';
+    use HasFactory; 
 }

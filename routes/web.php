@@ -44,6 +44,10 @@ Route::middleware(['admin'])->group(function () {
     Route::post('/admin.index/addproduct', [AdminProductController::class, 'addProduct'])->name('admin.storeProduct');
     
     Route::get('/admin.index/products', [AdminProductController::class, 'showProducts'])->name('admin.products');
+    //edit product
+    Route::get('/admin.index/editproducts/{id}', [AdminProductController::class, 'indexEdit'])->name('admin.editproducts');
+    Route::put('/admin.index/editproducts/{id}', [AdminProductController::class, 'editProduct'])->name('admin.update');
+    //delete product
 });
 
 
@@ -66,7 +70,7 @@ Route::get('/sort', [ProductController::class, 'sortProducts'])->name('sort.prod
 //detail product
 Route::get('/products/{id}', [ProductController::class, 'showProductDetail'])->name('products.showProductDetail');
 
-
+//các tuyến của khách hàng
 Route::middleware(['auth'])->group(function () {
     // Các tuyến khác 
     Route::match(['get', 'post'], '/auth.logout', [LoginController::class, 'logout'])->name('auth.logout');

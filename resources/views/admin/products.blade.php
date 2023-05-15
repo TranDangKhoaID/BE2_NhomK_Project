@@ -27,19 +27,20 @@
                                                 <h5 class="mb-2 f-19">{{$product->name}}</h5>
                                                 <ul class="list-inline mb-0">
                                                     <li class="list-inline-item">
-                                                        <p class="text-muted f-15 mb-0"><i class="mdi mdi-currency-usd mr-1"></i>${{$product->price}}</p>
+                                                        <p class="text-muted f-15 mb-0"><i class="mdi mdi-currency-usd mr-1"></i>{{$product->price}}</p>
                                                     </li>
                                                 </ul>
                                                 <p class="text-muted mt-1 mb-0">Manufacture : {{$product->manu_id}}</p>
                                                 <p class="text-muted mt-1 mb-0">Protype : {{$product->type_id}}</p>
                                                 <p class="text-muted mt-1 mb-0">Feature : {{$product->feature}}</p>
+                                                <p class="text-muted mt-1 mb-0">Created At : {{$product->created_at}}</p>
                                             </div>
                                         </div>
 
                                         <div class="col-md-3">
                                             <div class="candidates-list-fav-btn text-right">
                                                 <div class="candidates-listing-btn mt-4">
-                                                    <a href="#" class="btn btn-outline btn-sm">EDIT</a>
+                                                    <a href="{{ route('admin.editproducts', $product->id) }}" class="btn btn-outline btn-sm">EDIT</a>
                                                 </div>
                                                 <div class="candidates-listing-btn mt-4">
                                                     <a href="#" class="btn btn-outline btn-sm">DELETE</a>

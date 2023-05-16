@@ -61,7 +61,7 @@
                                                                         <td>#{{$billing->id}}</td>
                                                                         <td>{{$billing->created_at}}</td>
                                                                         <td>{{$billing->amount}}</td>
-                                                                        <td><span class="badge bg-light text-dark">Pending</span></td>
+                                                                        <td><span class="badge bg-danger text-white">{{$billing->statues}}</span></td>
                                                                         <td><a href="{{route('billing', ['id' => $billing->id])}}">Show</a></td>
                                                                     </tr>
                                                                 @endforeach

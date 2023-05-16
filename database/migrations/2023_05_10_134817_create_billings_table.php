@@ -23,6 +23,7 @@ class CreateBillingsTable extends Migration
             $table->string('city',50);
             $table->string('saysomething',50)->nullable();;
             $table->double('amount');
+            $table->string('status')->default('wait for confirmation');
             $table->timestamps();
         });
     }

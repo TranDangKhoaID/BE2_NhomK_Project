@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\Admin\AdminManuController;
 use App\Http\Controllers\Admin\AdminProtypeController;
+use App\Http\Controllers\Admin\AdminBillingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,12 +74,27 @@ Route::middleware(['admin'])->group(function () {
     Route::post('/admin.index/edittypes/{type_id}', [AdminProtypeController::class, 'editManu'])->name('admin.editprotype');
     //delete 
     Route::delete('/admin.index/deletetype/{type_id}', [AdminProtypeController::class, 'deleteManu'])->name('admin.deletetype');
+
+    //billings admin
+    //billing-cancel
+    Route::get('/admin.index/billings/{id}/cancel', [AdminBillingController::class, 'cancelBilling'])->name('admin.billings-cancel');
+    Route::get('/admin.index/billings-cancel', [AdminBillingController::class, 'showBillingsHuy'])->name('admin.billings-h');
+    
+    //billing - chờ xác nhận
+    Route::get('/admin.index/billings-cxn', [AdminBillingController::class, 'showBillingsChoXacNhan'])->name('admin.billings-cxn');
+    //billing - xác nhận
+    Route::get('/admin.index/billings-cxn/{id}/xn', [AdminBillingController::class, 'xacNhanBilling'])->name('admin.billings-cxn.xn');
+    Route::get('/admin.index/billings-xn', [AdminBillingController::class, 'showBillingsXacNhan'])->name('admin.billings-xn');
+    //billing - done
+    Route::get('/admin.index/billings-cxn/{id}/done', [AdminBillingController::class, 'doneBilling'])->name('admin.billings-xn.done');
+    Route::get('/admin.index/billings-done', [AdminBillingController::class, 'showBillingsDone'])->name('admin.billings-done');
+    
 });
 
 
 
 Route::get('/manu', function () {
-    return view('admin.addmanufacture');
+    return view('admin.billings-choxacnhan');
 });
 
 Route::get('/auth.register', [RegisterController::class, 'showRegisterForm'])->name('register');

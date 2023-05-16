@@ -65,6 +65,7 @@
                                     <a class="nav-link" href="{{ route('admin.protypes')}}">Protypes</a>
                                 </nav>
                             </div>
+
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                                 ADD
@@ -72,16 +73,37 @@
                             </a>
                             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                   <a class="nav-link" href="{{ route('admin.addproduct')}}">ADD Product</a>
+                                    <a class="nav-link" href="{{ route('admin.addproduct')}}">ADD Product</a>
                                 </nav>
                                 <nav class="sb-sidenav-menu-nested nav">
-                                   <a class="nav-link" href="{{ route('admin.addmanufacture')}}">ADD Manufactures</a>
+                                    <a class="nav-link" href="{{ route('admin.addmanufacture')}}">ADD Manufactures</a>
                                 </nav>
                                 <nav class="sb-sidenav-menu-nested nav">
-                                   <a class="nav-link" href="{{ route('admin.addprotype')}}">ADD Protype</a>
+                                    <a class="nav-link" href="{{ route('admin.addprotype')}}">ADD Protype</a>
                                 </nav>
                             </div>
-                            <div class="sb-sidenav-menu-heading">Addons</div>
+
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseBillings" aria-expanded="false" aria-controls="collapseBillings">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                Billings
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseBillings" aria-labelledby="headingThree" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="{{ route('admin.billings-cxn') }}">Wait for Confirmation</a>
+                                </nav>
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="{{ route('admin.billings-xn') }}">Confirmed - Shipping</a>
+                                </nav>
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="{{ route('admin.billings-done') }}">Delivered</a>
+                                </nav>
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="{{ route('admin.billings-h') }}">Cancel</a>
+                                </nav>
+                            </div>
+
+                            <div class="sb-sidenav-menu-heading">Addon</div>
                             <a class="nav-link" href="charts.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Charts

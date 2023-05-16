@@ -7,6 +7,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckOutController;
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\AdminRegisterController;
 use App\Http\Controllers\Admin\AdminHomeController;
@@ -15,6 +16,8 @@ use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\Admin\AdminManuController;
 use App\Http\Controllers\Admin\AdminProtypeController;
 use App\Http\Controllers\Admin\AdminBillingController;
+use App\Http\Controllers\Admin\AdminBlogController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -90,12 +93,20 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/admin.index/billings-cxn/{id}/done', [AdminBillingController::class, 'doneBilling'])->name('admin.billings-xn.done');
     Route::get('/admin.index/billings-done', [AdminBillingController::class, 'showBillingsDone'])->name('admin.billings-done');
     
+    //blogs admin
+    Route::get('/admin.index/addblog', [AdminBlogController::class, 'index'])->name('admin.addblog');
+    Route::post('/admin.index/addblog', [AdminBlogController::class, 'addBlog'])->name('admin.storeBlog');
+   
 });
 
 
 Route::get('/manu', function () {
-    return view('admin.billings-choxacnhan');
+    return view('blog');
 });
+Route::get('/manu-dt', function () {
+    return view('blog-details');
+});
+
 
 //customer
 Route::get('/auth.register', [RegisterController::class, 'showRegisterForm'])->name('register');
@@ -111,6 +122,10 @@ Route::get('/shop', [ProductController::class, 'showAllShop'])->name('shop');
 Route::get('/sort', [ProductController::class, 'sortProducts'])->name('sort.products');
 //detail product
 Route::get('/products/{id}', [ProductController::class, 'showProductDetail'])->name('products.showProductDetail');
+//blog
+Route::get('/blogs', [BlogController::class, 'showAll'])->name('blog');
+Route::get('/blogs/{id}', [BlogController::class, 'showBlogDetail'])->name('blog.showBlogDetail');
+
 
 //các tuyến của khách hàng
 Route::middleware(['auth'])->group(function () {

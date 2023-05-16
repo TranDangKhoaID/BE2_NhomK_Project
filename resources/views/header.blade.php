@@ -86,7 +86,7 @@
                                                     <li><a href="{{ route('account') }}">my account</a></li>
                                                     <li><a href="wishlist.html">my wishlist</a></li>
                                                     <li><a href="{{ route('cart') }}">my cart</a></li>
-                                                    <li><a href="blog.html">Blog</a></li>
+                                                    <li><a href="{{ route('blog') }}">Blog</a></li>
                                                     <li>
                                                     <form action="{{ route('auth.logout') }}" method="post">
                                                         @csrf
@@ -128,7 +128,7 @@
                                     <ul>                                      
                                         <li><a href="{{ route('index') }}">Home</a></li>
                                         <li><a href="{{ route('shop') }}">Shop</a></li>
-                                        <li><a href="/shop">Blogs</a></li> 
+                                        <li><a href="{{ route('blog') }}">Blogs</a></li> 
                                         <li><a href="/shop">About us</a></li> 
                                     </ul>
                                 </nav>

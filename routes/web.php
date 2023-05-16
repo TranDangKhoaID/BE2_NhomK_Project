@@ -27,6 +27,7 @@ use App\Http\Controllers\Admin\AdminBillingController;
 |
 */
 
+//admin
 Route::get('/admin.register', [AdminRegisterController::class, 'index'])->name('admin.register');
 Route::post('/admin.register', [AdminRegisterController::class, 'AdminRegister'])->name('admin.register');
 
@@ -92,11 +93,11 @@ Route::middleware(['admin'])->group(function () {
 });
 
 
-
 Route::get('/manu', function () {
     return view('admin.billings-choxacnhan');
 });
 
+//customer
 Route::get('/auth.register', [RegisterController::class, 'showRegisterForm'])->name('register');
 Route::post('/auth.register', [RegisterController::class, 'register'])->name('register');
 

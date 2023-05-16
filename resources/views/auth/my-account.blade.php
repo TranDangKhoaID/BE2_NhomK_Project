@@ -51,7 +51,7 @@
                                                                         <th class="border-gray-200" scope="col">Transaction ID</th>
                                                                         <th class="border-gray-200" scope="col">Date</th>
                                                                         <th class="border-gray-200" scope="col">Amount</th>
-                                                                        <th class="border-gray-200" scope="col">Status</th>
+                                                                        <th class="text-center border-gray-200" scope="col">Status</th>
                                                                         <th class="border-gray-200" scope="col">Detail</th>
                                                                     </tr>
                                                                 </thead>
@@ -61,7 +61,23 @@
                                                                         <td>#{{$billing->id}}</td>
                                                                         <td>{{$billing->created_at}}</td>
                                                                         <td>{{$billing->amount}}</td>
-                                                                        <td><span class="badge bg-danger text-white">{{$billing->statues}}</span></td>
+                                                                        @if($billing->status == 'wait for confirmation')
+                                                                            <td class="text-center">
+                                                                                <span class="label label-default">{{$billing->status}}</span>
+                                                                            </td>
+                                                                        @elseif($billing->status == 'confirmed')
+                                                                            <td class="text-center">
+                                                                                <span class="label label-warning">{{$billing->status}} - shipping</span>
+                                                                            </td>
+                                                                        @elseif($billing->status == 'delivered')
+                                                                            <td class="text-center">
+                                                                                <span class="label label-success">{{$billing->status}}</span>
+                                                                            </td>
+                                                                        @elseif($billing->status == 'cancel')
+                                                                            <td class="text-center">
+                                                                                <span class="label label-danger">{{$billing->status}}</span>
+                                                                            </td>
+                                                                        @endif
                                                                         <td><a href="{{route('billing', ['id' => $billing->id])}}">Show</a></td>
                                                                     </tr>
                                                                 @endforeach

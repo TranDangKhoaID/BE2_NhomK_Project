@@ -103,6 +103,10 @@ Route::middleware(['admin'])->group(function () {
 Route::get('/about-us', function () {
     return view('about-us');
 });
+Route::get('/about-us', function () {
+    return view('hello');
+});
+
 
 
 

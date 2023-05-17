@@ -63,14 +63,16 @@
                                     <h3>Price</h3>
                                 </div>
                                 <div class="single-sidebar-content">
-                                    <div class="price-range">
+                                <div class="price-range">
+                                    <form action="{{ route('search.products.slider') }}" method="GET">
                                         <div class="price-filter">
                                             <div id="slider-range"></div>
                                             <div class="price-slider-amount">
-                                                <input type="text" id="amount" name="price"  placeholder="Add Your Price" />
+                                                <input type="text" id="amount" name="price" placeholder="Add Your Price" />
                                             </div>
                                         </div>
-                                        <button type="submit"> <span>search</span> </button>
+                                        <button type="submit"> <span>Search</span> </button>
+                                    </form>
                                     </div>
                                 </div>
                             </div>

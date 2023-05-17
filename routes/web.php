@@ -128,6 +128,8 @@ Route::get('/shop', [ProductController::class, 'showAllShop'])->name('shop');
 Route::get('/sort', [ProductController::class, 'sortProducts'])->name('sort.products');
 //tìm kiếm sản phẩm
 Route::get('/search', [ProductController::class, 'searchProducts'])->name('search.products');
+Route::get('/search-slider-price', [ProductController::class, 'searchSliderPriceProducts'])->name('search.products.slider');
+
 //hiển thị sản phẩm theo manufacture id
 Route::get('/shop/manufactures/{manu_id}', [ProductController::class, 'manufactureProduct'])->name('shop.manu.products');
 //hiển thị sản phẩm theo protype_id

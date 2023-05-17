@@ -89,6 +89,26 @@ class ProductController extends Controller
 
         return view('shop', compact('protype', 'products', 'manufactures', 'protypes'));
     }
+    //tìm kiếm sản phẩm theo slider price
+    public function searchSliderPriceProducts(Request $request)
+    {
+        $price = $request->input('price');
+
+        // Loại bỏ dấu "$" và khoảng trắng trong giá trị price
+
+        // Tách giá trị tối thiểu và tối đa từ giá nhập vào
+        $priceRange = explode('--', $price);
+        $minPrice = (float) trim($priceRange[0]);
+        $maxPrice = (float) trim($priceRange[1]);
+
+        // Truy vấn các sản phẩm có giá trong khoảng từ minPrice đến maxPrice
+        $products = Product::whereBetween('price', [$minPrice, $maxPrice])->paginate(6);
+        $manufactures = Manufacture::all();
+        $protypes = Protype::all();
+
+        return view('shop', compact('products', 'manufactures', 'protypes'));
+    }
+
 
 
     public function showProductDetail($id)

@@ -103,9 +103,7 @@ Route::middleware(['admin'])->group(function () {
 Route::get('/about-us', function () {
     return view('about-us');
 });
-Route::get('/manu-dt', function () {
-    return view('blog-details');
-});
+
 
 
 //customer

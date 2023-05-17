@@ -30,13 +30,12 @@ use App\Http\Controllers\Admin\AdminBlogController;
 |
 */
 
-//admin
+//dang ki admin
 Route::get('/admin.register', [AdminRegisterController::class, 'index'])->name('admin.register');
 Route::post('/admin.register', [AdminRegisterController::class, 'AdminRegister'])->name('admin.register');
-
+//dang nhap admin
 Route::get('/admin.login', [AdminLoginController::class, 'index'])->name('admin.login');
 Route::post('/admin.login', [AdminLoginController::class, 'login'])->name('admin.login.submit');
-// Route::get('/admin.index', [AdminHomeController::class, 'index'])->name('admin.index');
 
 // Các tuyến của người dùng quản trị
 Route::middleware(['admin'])->group(function () {
@@ -46,10 +45,11 @@ Route::middleware(['admin'])->group(function () {
     // Các tuyến khác của người dùng quản trị...
     Route::get('/admin.index/users', [AdminUserController::class, 'index'])->name('admin.users');
     Route::get('/admin.index/users/{id}/block', [AdminUserController::class, 'blockUser'])->name('admin.users.block');
+
     //admin product
     Route::get('/admin.index/addproduct', [AdminProductController::class, 'index'])->name('admin.addproduct');
     Route::post('/admin.index/addproduct', [AdminProductController::class, 'addProduct'])->name('admin.storeProduct');
-    
+    //hien thi list products
     Route::get('/admin.index/products', [AdminProductController::class, 'showProducts'])->name('admin.products');
     //edit product
     Route::get('/admin.index/editproducts/{id}', [AdminProductController::class, 'indexEdit'])->name('admin.editproducts');
@@ -100,8 +100,8 @@ Route::middleware(['admin'])->group(function () {
 });
 
 
-Route::get('/manu', function () {
-    return view('blog');
+Route::get('/about-us', function () {
+    return view('about-us');
 });
 Route::get('/manu-dt', function () {
     return view('blog-details');

@@ -85,6 +85,14 @@
                                     </button>
                                 </form>
                             </div>
+                            <div class="search-box">
+                                    <form action="#">
+                                        <input type="text">
+                                        <button type="submit">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </form>
+                            </div>
                         </div>
                         <div class="row">
                             <div class="product-content">

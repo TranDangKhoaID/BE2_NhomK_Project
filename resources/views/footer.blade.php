@@ -16,7 +16,7 @@
                                 </li>
                                 <li>
                                     <span class="fa fa-envelope-o"></span>
-                                    admin@bootexperts.com
+                                    Nhóm K - Backend 2
                                 </li>
                             </ul>
                         </div>

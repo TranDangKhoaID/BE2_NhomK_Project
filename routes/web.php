@@ -106,9 +106,6 @@ Route::get('/about-us', function () {
 Route::get('/wishlist', function () {
     return view('whistlist');
 });
-Route::get('/', function () {
-    return view('welcome');
-});
 
 
 //customer

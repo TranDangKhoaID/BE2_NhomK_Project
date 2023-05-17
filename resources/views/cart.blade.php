@@ -111,11 +111,13 @@
                             <a href="#">Checkout with Multiple Addresses</a>
                         </div>
                     </div>
-                    @if (session('error'))
-                        <div class="alert alert-danger">
-                            {{ session('error') }}
-                        </div>
-                    @endif
+                    <div class="text-center">
+                        @if (session('error'))
+                            <div class="alert alert-danger">
+                                {{ session('error') }}
+                            </div>
+                        @endif
+                    </div>
                 </div>
             </div>
         </div>

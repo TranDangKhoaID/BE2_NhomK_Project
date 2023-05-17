@@ -32,7 +32,11 @@
                                 <div class="single-sidebar-content">
                                     <ul>
                                         @foreach($protypes as $protype)
-                                        <li><a href="#">{{ $protype->type_name }}</a></li>
+                                        <li>
+                                            <a href="{{ route('shop.type.products', ['type_id' => $protype->type_id]) }}">
+                                                {{ $protype->type_name }}
+                                            </a>
+                                        </li>
                                         @endforeach
                                     </ul>
                                 </div>
@@ -44,10 +48,15 @@
                                 <div class="single-sidebar-content">
                                     <ul>
                                         @foreach($manufactures as $manufacture)
-                                        <li><a href="#">{{ $manufacture->manu_name}}</a></li>
+                                        <li>
+                                            <a href="{{ route('shop.manu.products', ['manu_id' => $manufacture->manu_id]) }}">
+                                                {{ $manufacture->manu_name }}
+                                            </a>
+                                        </li>
                                         @endforeach
                                     </ul>
                                 </div>
+
                             </div>
                             <div class="single-sidebar price">
                                 <div class="single-sidebar-title">

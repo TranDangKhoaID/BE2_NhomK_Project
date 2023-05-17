@@ -28,6 +28,7 @@ class ProductController extends Controller
         $loggedInUserId = Auth::id();
         return view('shop', compact('products','manufactures','protypes','loggedInUserId'));
     }
+    //Lan Anh
     //sap xep sp
     public function sortProducts(Request $request)
     {
@@ -49,16 +50,44 @@ class ProductController extends Controller
 
         return view('shop', compact('products', 'manufactures', 'protypes', 'loggedInUserId'));
     }
-
+    //Lan Anh
+    //tìm kiếm sản phẩm theo tên
     public function searchProducts(Request $request)
     {
         $searchTerm = $request->input('search');
-
         $products = Product::where('name', 'LIKE', '%' . $searchTerm . '%')->paginate(6);
         $manufactures = Manufacture::all();
         $protypes = Protype::all();
 
         return view('shop', compact('products', 'manufactures', 'protypes'));
+    }
+    //Lan Anh
+    //Lấy tất cả sản phẩm theo manufactures
+    public function manufactureProduct($manu_id)
+    {
+        $manufacture = Manufacture::findOrFail($manu_id); 
+
+        // Lấy danh sách sản phẩm của nhà sản xuất
+        $products = Product::where('manu_id', $manu_id)->paginate(6);
+
+        $manufactures = Manufacture::all();
+        $protypes = Protype::all();
+
+        return view('shop', compact('manufacture', 'products', 'manufactures', 'protypes'));
+    }
+    //Lan Anh
+    //Lấy tất cả sản phẩm theo protype
+    public function protypeProduct($type_id)
+    {
+        $protype = Protype::findOrFail($type_id);
+
+        // Lấy danh sách sản phẩm của nhà sản xuất
+        $products = Product::where('type_id', $type_id)->paginate(6);
+
+        $manufactures = Manufacture::all();
+        $protypes = Protype::all();
+
+        return view('shop', compact('protype', 'products', 'manufactures', 'protypes'));
     }
 
 

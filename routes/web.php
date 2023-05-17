@@ -128,6 +128,11 @@ Route::get('/shop', [ProductController::class, 'showAllShop'])->name('shop');
 Route::get('/sort', [ProductController::class, 'sortProducts'])->name('sort.products');
 //tìm kiếm sản phẩm
 Route::get('/search', [ProductController::class, 'searchProducts'])->name('search.products');
+//hiển thị sản phẩm theo manufacture id
+Route::get('/shop/manufactures/{manu_id}', [ProductController::class, 'manufactureProduct'])->name('shop.manu.products');
+//hiển thị sản phẩm theo protype_id
+Route::get('/shop/protypes/{type_id}', [ProductController::class, 'protypeProduct'])->name('shop.type.products');
+
 //detail product
 Route::get('/products/{id}', [ProductController::class, 'showProductDetail'])->name('products.showProductDetail');
 //blog

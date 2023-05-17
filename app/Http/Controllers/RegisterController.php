@@ -5,13 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
     public function showRegisterForm(){
-        {
-            return view('auth.register');
+        
+        if (Auth::check()) {
+            return redirect()->route('index'); // Chuyển hướng đến trang đăng nhập
         }
+        return view('auth.register');
+        
     }
     public function register(Request $request)
     {

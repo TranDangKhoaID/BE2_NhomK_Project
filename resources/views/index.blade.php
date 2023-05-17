@@ -98,7 +98,7 @@
                                     <img src="{{ asset('img/product/' . $product->image) }}" alt="" class="primary-img">
                                 </div>
                                 <div class="product-name">
-                                    <a href="single-product.html" title="{{$product->name}}">{{$product->name}}</a>
+                                    <a href="{{route('products.showProductDetail', ['id' => $product->id]) }}" title="{{$product->name}}">{{$product->name}}</a>
                                 </div>
                                 <div class="price-rating">                                  
                                     <span>{{$product->price}}</span>
@@ -156,10 +156,10 @@
                                     <span>new</span>
                                 </div>
                                 <div class="product-img">
-                                    <img src="{{ asset('img/product/' . $product->image) }}" alt="" class="primary-img">
+                                    <img src="{{ asset('img/product/' . $product->image) }}" alt=""  class="primary-img">
                                 </div>
                                 <div class="product-name">
-                                    <a href="single-product.html" title="Fusce aliquam">{{$product->name}}</a>
+                                    <a href="{{route('products.showProductDetail', ['id' => $product->id]) }}" title="Fusce aliquam">{{$product->name}}</a>
                                 </div>
                                 <div class="price-rating">         
                                     <span>{{$product->price}}</span>

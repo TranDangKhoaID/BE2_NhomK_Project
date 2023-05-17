@@ -83,16 +83,16 @@
                                                 @endguest
                                                 @auth
                                                     <!-- Hiển thị các mục menu cho người dùng đã đăng nhập -->
-                                                    <li><a href="my-account.html">my account</a></li>
+                                                    <li><a href="{{ route('account') }}">my account</a></li>
                                                     <li><a href="wishlist.html">my wishlist</a></li>
-                                                    <li><a href="cart.html">my cart</a></li>
-                                                    <li><a href="checkout.html">Checkout</a></li>
-                                                    <li><a href="blog.html">Blog</a></li>
+                                                    <li><a href="{{ route('cart') }}">my cart</a></li>
+                                                    <li><a href="{{ route('blog') }}">Blog</a></li>
                                                     <li>
-                                                    <form action="{{ route('logout') }}" method="post">
+                                                    <form action="{{ route('auth.logout') }}" method="post">
                                                         @csrf
-                                                        <button type="submit">Logout</button>
+                                                        <button type="submit">Đăng xuất</button>
                                                     </form>
+
                                                     </li>
                                                 @endauth
                                             </ul>
@@ -128,7 +128,7 @@
                                     <ul>                                      
                                         <li><a href="{{ route('index') }}">Home</a></li>
                                         <li><a href="{{ route('shop') }}">Shop</a></li>
-                                        <li><a href="/shop">Blogs</a></li> 
+                                        <li><a href="{{ route('blog') }}">Blogs</a></li> 
                                         <li><a href="/shop">About us</a></li> 
                                     </ul>
                                 </nav>

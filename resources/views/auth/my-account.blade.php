@@ -44,8 +44,46 @@
                                                     <div class="account-title">
                                                         <h4>Here are the orders you've placed since your account was created.</h4>
                                                     </div>
-                                                    <div class="order-history">
-                                                        <p>You have not placed any orders.</p>
+                                                        <div class="table-responsive table-billing-history">
+                                                            <table class="table mb-0">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th class="border-gray-200" scope="col">Transaction ID</th>
+                                                                        <th class="border-gray-200" scope="col">Date</th>
+                                                                        <th class="border-gray-200" scope="col">Amount</th>
+                                                                        <th class="text-center border-gray-200" scope="col">Status</th>
+                                                                        <th class="border-gray-200" scope="col">Detail</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                @foreach ($billings as $billing)
+                                                                    <tr>
+                                                                        <td>#{{$billing->id}}</td>
+                                                                        <td>{{$billing->created_at}}</td>
+                                                                        <td>{{$billing->amount}}</td>
+                                                                        @if($billing->status == 'wait for confirmation')
+                                                                            <td class="text-center">
+                                                                                <span class="label label-default">{{$billing->status}}</span>
+                                                                            </td>
+                                                                        @elseif($billing->status == 'confirmed')
+                                                                            <td class="text-center">
+                                                                                <span class="label label-warning">{{$billing->status}} - shipping</span>
+                                                                            </td>
+                                                                        @elseif($billing->status == 'delivered')
+                                                                            <td class="text-center">
+                                                                                <span class="label label-success">{{$billing->status}}</span>
+                                                                            </td>
+                                                                        @elseif($billing->status == 'cancel')
+                                                                            <td class="text-center">
+                                                                                <span class="label label-danger">{{$billing->status}}</span>
+                                                                            </td>
+                                                                        @endif
+                                                                        <td><a href="{{route('billing', ['id' => $billing->id])}}">Show</a></td>
+                                                                    </tr>
+                                                                @endforeach
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -148,7 +186,6 @@
                             </div>
                             <div class="account-button">
                                 <div class="back-btn"> <a href="#">Back to your Account</a> </div>
-                                <div class="home"> <a href="index.html"> home</a> </div>
                             </div>
                         </div>
                     </div>

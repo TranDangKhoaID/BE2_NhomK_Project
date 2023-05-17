@@ -8,8 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
-    public function showCartForm(){
-
+    public function showCartForm(){ 
         $userId = Auth::id();
         $carts = Cart::where('user_id', $userId)->get();
         

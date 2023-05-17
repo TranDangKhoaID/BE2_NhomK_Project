@@ -33,20 +33,23 @@ class ProductController extends Controller
     {
         $sort = $request->input('sort');
         $loggedInUserId = Auth::id();
-        // Xử lý sắp xếp dựa trên giá trị của biến $sort
+        
         if ($sort === 'name') {
-            $products = Product::orderBy('name')->paginate(6); // Phân trang với 6 sản phẩm/trang
-        } elseif ($sort === 'price') {
-            $products = Product::orderBy('price')->paginate(6); // Phân trang với 6 sản phẩm/trang
+            $products = Product::orderBy('name')->paginate(6);
+        } elseif ($sort === 'price_low_to_high') {
+            $products = Product::orderBy('price')->paginate(6);
+        } elseif ($sort === 'price_high_to_low') {
+            $products = Product::orderBy('price', 'desc')->paginate(6);
         } else {
-            $products = Product::paginate(6); // Phân trang với 6 sản phẩm/trang, giữ nguyên danh sách ban đầu nếu không có sắp xếp
+            $products = Product::paginate(6);
         }
-        // Lấy danh sách các nhà sản xuất và các loại sản phẩm (nếu cần)
+        
         $manufactures = Manufacture::all();
         $protypes = Protype::all();
 
-        return view('shop', compact('products', 'manufactures', 'protypes','loggedInUserId'));
+        return view('shop', compact('products', 'manufactures', 'protypes', 'loggedInUserId'));
     }
+
 
 
     public function showProductDetail($id)

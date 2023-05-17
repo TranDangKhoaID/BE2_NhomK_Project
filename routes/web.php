@@ -96,7 +96,7 @@ Route::middleware(['admin'])->group(function () {
     //blogs admin
     Route::get('/admin.index/addblog', [AdminBlogController::class, 'index'])->name('admin.addblog');
     Route::post('/admin.index/addblog', [AdminBlogController::class, 'addBlog'])->name('admin.storeBlog');
-   
+    
 });
 
 

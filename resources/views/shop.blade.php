@@ -78,7 +78,8 @@
                                     <select name="sort">
                                         <option value="default" @if(request('sort') === 'default') selected @endif>Default</option>
                                         <option value="name" @if(request('sort') === 'name') selected @endif>Name</option>
-                                        <option value="price" @if(request('sort') === 'price') selected @endif>Price</option>
+                                        <option value="price_low_to_high" @if(request('sort') === 'price_low_to_high') selected @endif>Price (Low to High)</option>
+                                        <option value="price_high_to_low" @if(request('sort') === 'price_high_to_low') selected @endif>Price (High to Low)</option>
                                     </select>
                                     <button type="submit" title="Sort">
                                         <img src="img/product/i_asc_arrow.gif" alt="">
@@ -86,12 +87,12 @@
                                 </form>
                             </div>
                             <div class="search-box">
-                                    <form action="#">
-                                        <input type="text">
-                                        <button type="submit">
-                                            <i class="fa fa-search"></i>
-                                        </button>
-                                    </form>
+                                <form action="#">
+                                    <input type="text">
+                                    <button type="submit">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </form>
                             </div>
                         </div>
                         <div class="row">

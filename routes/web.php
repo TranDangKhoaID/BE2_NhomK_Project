@@ -106,9 +106,9 @@ Route::get('/about-us', function () {
 Route::get('/wishlist', function () {
     return view('whistlist');
 });
-
-
-
+Route::get('/hungphan', function () {
+    return view('welcome');
+});
 
 
 //customer

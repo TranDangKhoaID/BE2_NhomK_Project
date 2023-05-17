@@ -126,6 +126,8 @@ Route::get('/index', [MyController::class, 'index'])->name('index');
 //shop list and sort
 Route::get('/shop', [ProductController::class, 'showAllShop'])->name('shop');
 Route::get('/sort', [ProductController::class, 'sortProducts'])->name('sort.products');
+//tìm kiếm sản phẩm
+Route::get('/search', [ProductController::class, 'searchProducts'])->name('search.products');
 //detail product
 Route::get('/products/{id}', [ProductController::class, 'showProductDetail'])->name('products.showProductDetail');
 //blog

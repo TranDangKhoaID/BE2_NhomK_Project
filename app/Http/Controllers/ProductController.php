@@ -50,6 +50,16 @@ class ProductController extends Controller
         return view('shop', compact('products', 'manufactures', 'protypes', 'loggedInUserId'));
     }
 
+    public function searchProducts(Request $request)
+    {
+        $searchTerm = $request->input('search');
+
+        $products = Product::where('name', 'LIKE', '%' . $searchTerm . '%')->paginate(6);
+        $manufactures = Manufacture::all();
+        $protypes = Protype::all();
+
+        return view('shop', compact('products', 'manufactures', 'protypes'));
+    }
 
 
     public function showProductDetail($id)

@@ -106,7 +106,7 @@ Route::get('/about-us', function () {
 Route::get('/wishlist', function () {
     return view('whistlist');
 });
-Route::get('/hungphan', function () {
+Route::get('/', function () {
     return view('welcome');
 });
 

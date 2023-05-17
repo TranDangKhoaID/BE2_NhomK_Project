@@ -86,71 +86,21 @@
                                     <h2>Blog Posts</h2>
                                 </div>
                                 <div class="blog-area">
+                                    @foreach ($blogs as $blog)
                                     <div class="single-blog-post-page">
                                         <div class="blog-img">
                                             <a href="blog-details.html">
-                                                <img src="img/blog/5.jpg" alt="">
+                                                <img src="{{ asset('img/blog/' . $blog->image) }}" alt="">
                                             </a>
                                         </div>
                                         <div class="blog-content">
-                                            <a href="blog-details.html" class="blog-title">Lorem ipsum dolor sit amet</a>
-                                            <span><a href="#">By plaza themes - </a>17 Aug 2015 ( 0 comments )</span>
-                                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna...</p>
-                                            <a href="blog-details.html" class="readmore">read more ></a>
+                                            <a href="blog-details.html" class="blog-title">{{$blog->title}}</a>
+                                            <span><a href="#">By {{$blog->author}} - </a>17 Aug 2015 ( 0 comments )</span>
+                                            <p>{{ Str::limit($blog->content, 300, '...') }}</p>
+                                            <a href="{{route('blog.showBlogDetail', ['id' => $blog->id]) }}" class="readmore">read more ></a>
                                         </div>
                                     </div>
-                                    <div class="single-blog-post-page">
-                                        <div class="blog-img">
-                                            <a href="blog-details.html">
-                                                <img src="img/blog/6.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="blog-content">
-                                            <a href="blog-details.html" class="blog-title">Lorem ipsum dolor sit amet</a>
-                                            <span><a href="#">By plaza themes - </a>17 Aug 2015 ( 0 comments )</span>
-                                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna...</p>
-                                            <a href="blog-details.html" class="readmore">read more ></a>
-                                        </div>
-                                    </div>
-                                    <div class="single-blog-post-page">
-                                        <div class="blog-img">
-                                            <a href="blog-details.html">
-                                                <img src="img/blog/5.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="blog-content">
-                                            <a href="blog-details.html" class="blog-title">Lorem ipsum dolor sit amet</a>
-                                            <span><a href="#">By plaza themes - </a>17 Aug 2015 ( 0 comments )</span>
-                                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna...</p>
-                                            <a href="blog-details.html" class="readmore">read more ></a>
-                                        </div>
-                                    </div>
-                                    <div class="single-blog-post-page">
-                                        <div class="blog-img">
-                                            <a href="blog-details.html">
-                                                <img src="img/blog/6.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="blog-content">
-                                            <a href="blog-details.html" class="blog-title">Lorem ipsum dolor sit amet</a>
-                                            <span><a href="#">By plaza themes - </a>17 Aug 2015 ( 0 comments )</span>
-                                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna...</p>
-                                            <a href="blog-details.html" class="readmore">read more ></a>
-                                        </div>
-                                    </div>
-                                    <div class="single-blog-post-page">
-                                        <div class="blog-img">
-                                            <a href="blog-details.html">
-                                                <img src="img/blog/5.jpg" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="blog-content">
-                                            <a href="blog-details.html" class="blog-title">Lorem ipsum dolor sit amet</a>
-                                            <span><a href="#">By plaza themes - </a>17 Aug 2015 ( 0 comments )</span>
-                                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna...</p>
-                                            <a href="blog-details.html" class="readmore">read more ></a>
-                                        </div>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                             <div class="col-md-12">

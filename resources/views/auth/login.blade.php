@@ -39,6 +39,11 @@
                                                 {{ Session::get('success') }}
                                             </div>
                                         @endif
+                                        @if ($errors->has('auth.login'))
+                                            <div class="alert alert-danger">
+                                                {{ $errors->first('auth.login') }}
+                                            </div>
+                                        @endif
                                         <div class="button-box">
                                             <div class="login-toggle-btn">
                                                 <input type="checkbox" id="remember">

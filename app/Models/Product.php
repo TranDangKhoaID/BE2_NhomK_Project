@@ -9,6 +9,7 @@ use App\Models\Protype;
 
 class Product extends Model
 {
+   
     use HasFactory;
 }
 

@@ -18,6 +18,13 @@ class LoginController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
+            // Kiểm tra trạng thái block của người dùng
+            $user = Auth::user();
+            if ($user->is_blocked) {
+                // Người dùng bị block, hiển thị thông báo
+                return redirect()->back()->withInput()->withErrors(['auth.login' => 'Your account has been locked.']);
+            }
+    
             // Đăng nhập thành công, chuyển hướng đến trang index
             return redirect()->route('index');
         }
@@ -28,7 +35,6 @@ class LoginController extends Controller
     public function logout()
     {
         Auth::logout();
-
         return redirect()->route('index');
     }
 }

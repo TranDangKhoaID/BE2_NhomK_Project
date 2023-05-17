@@ -25,56 +25,7 @@
             </div>
         </div>
         <!-- slider area end -->
-        <!-- banner area start -->
-        <div class="banner-area">
-            <div class="single-banner">
-                <div class="part-1">
-                    <div class="box-1 box">
-                        <h4>nike ari max 2015</h4>
-                        <h2>air superiority</h2>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                        <a href="#">shopping now</a>
-                    </div>
-                    <div class="box-2">
-                        <a href="#">
-                            <img src="img/banner/banner-2.jpg" alt="">
-                        </a>
-                    </div>
-                </div>
-                <div class="part-2">
-                    <div class="search-box">
-                        <form action="#">
-                            <input type="text">
-                            <button type="submit">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </form>
-                    </div>
-                    <div class="box-3">
-                        <a href="#">
-                            <img src="img/banner/banner-1.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="box-4 box">
-                        <h4>nike ari max 2015</h4>
-                        <h2>air superiority</h2>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                        <a href="#">shopping now</a>
-                    </div>
-                    <div class="box-5">
-                        <a href="#">
-                            <img src="img/banner/banner-3.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="box-6">
-                        <a href="#">
-                            <img src="img/banner/banner-4.jpg" alt="">
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- banner area end -->
+       
         <!-- products area start -->
         
         <!-- products area end -->
@@ -88,7 +39,6 @@
                         </div>
                     </div>
                 </div>
-               
                 <div class="row">                
                     <div class="feature-product-slider">                       
                         @foreach ($products as $product)
@@ -98,7 +48,7 @@
                                     <img src="{{ asset('img/product/' . $product->image) }}" alt="" class="primary-img">
                                 </div>
                                 <div class="product-name">
-                                    <a href="single-product.html" title="{{$product->name}}">{{$product->name}}</a>
+                                    <a href="{{route('products.showProductDetail', ['id' => $product->id]) }}" title="{{$product->name}}">{{$product->name}}</a>
                                 </div>
                                 <div class="price-rating">                                  
                                     <span>{{$product->price}}</span>
@@ -156,10 +106,10 @@
                                     <span>new</span>
                                 </div>
                                 <div class="product-img">
-                                    <img src="{{ asset('img/product/' . $product->image) }}" alt="" class="primary-img">
+                                    <img src="{{ asset('img/product/' . $product->image) }}" alt=""  class="primary-img">
                                 </div>
                                 <div class="product-name">
-                                    <a href="single-product.html" title="Fusce aliquam">{{$product->name}}</a>
+                                    <a href="{{route('products.showProductDetail', ['id' => $product->id]) }}" title="Fusce aliquam">{{$product->name}}</a>
                                 </div>
                                 <div class="price-rating">         
                                     <span>{{$product->price}}</span>

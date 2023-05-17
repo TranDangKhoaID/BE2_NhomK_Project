@@ -85,6 +85,14 @@
                                     </button>
                                 </form>
                             </div>
+                            <div class="search-box">
+                                    <form action="#">
+                                        <input type="text">
+                                        <button type="submit">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </form>
+                            </div>
                         </div>
                         <div class="row">
                             <div class="product-content">
@@ -131,21 +139,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12">
-                                <div class="toolbar-bottom">
-                                    <div class="pagination">
-                                        <ul>
-                                            <li class="disabled"><span>&laquo;</span></li>
-                                            @for ($i = 1; $i <= $products->lastPage(); $i++)
-                                                <li class="{{ ($products->currentPage() == $i) ? 'active' : '' }}">
-                                                    <a href="{{ $products->url($i) }}">{{ $i }}</a>
-                                                </li>
-                                            @endfor
-                                            <li class="disabled"><span>&raquo;</span></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+                            {{ $products->links() }}
                         </div>
                     </div>
                 </div>

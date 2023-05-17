@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Cart;
 use App\Models\Billing;
+use App\Models\OrderItem;
 use Illuminate\Support\Facades\Auth;
 
 class CheckoutController extends Controller
@@ -57,6 +58,18 @@ class CheckoutController extends Controller
         // Lưu các trường khác
         $billing->save();
 
+         // Lấy danh sách sản phẩm từ giỏ hàng
+        $cartItems = Cart::where('user_id', $userId)->get();
+
+        // Lưu thông tin sản phẩm vào bảng "order_items"
+        foreach ($cartItems as $cartItem) {
+            $orderItem = new OrderItem;
+            $orderItem->billing_id = $billing->id;
+            $orderItem->product_name = $cartItem->name;
+            $orderItem->quantity = $cartItem->quantity;
+            $orderItem->price = $cartItem->price;
+            $orderItem->save();
+        }
         // Xóa hết sản phẩm trong giỏ hàng
         Cart::where('user_id', $userId)->delete();
 

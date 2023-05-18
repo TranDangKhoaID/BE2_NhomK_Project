@@ -109,9 +109,7 @@ Route::get('/wishlist', function () {
 Route::get('/contact', function () {
     return view('contact');
 });
-Route::get('/welcome', function () {
-    return view('welcome');
-});
+
 
 
 //customer
@@ -120,6 +118,12 @@ Route::post('/auth.register', [RegisterController::class, 'register'])->name('re
 
 Route::get('/auth.login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/auth.login', [LoginController::class, 'login'])->name('login.submit');
+//password reset
+Route::get('/auth.forgotpassword', [LoginController::class, 'showForgotPasswordForm'])->name('forgotpassword');
+// Route::post('/auth.password.send', [LoginController::class, 'sendResetLinkEmail'])->name('password.send');
+
+// Route::get('/auth.resetpassword/{token}', [LoginController::class, 'showResetForm'])->name('resetpassword');
+// Route::post('/auth.password.reset', [LoginController::class, 'reset'])->name('password.reset');
 // Trang chủ (index)
 Route::get('/', [MyController::class, 'index']);
 Route::get('/index', [MyController::class, 'index'])->name('index');
@@ -158,6 +162,8 @@ Route::middleware(['auth'])->group(function () {
     //profile update
     Route::get('/auth.my-account/profile', [AccountController::class, 'indexProfile'])->name('profile');
     Route::post('/auth.my-account/update', [AccountController::class, 'updateProfile'])->name('account.update.profile');
+    //change pass
+    Route::get('/auth.my-account/changepassword', [AccountController::class, 'showChangePass'])->name('change.password');
 });
 
 

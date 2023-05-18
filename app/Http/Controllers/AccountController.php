@@ -26,6 +26,9 @@ class AccountController extends Controller
         
         return view('billing', compact('billing','orderItems'));
     }
+    public function showChangePass(){
+        return view('auth.changepassword');
+    }
 
     public function updateProfile(Request $request)
     {

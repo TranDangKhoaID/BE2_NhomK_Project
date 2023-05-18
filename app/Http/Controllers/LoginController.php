@@ -2,15 +2,31 @@
 
 namespace App\Http\Controllers;
 
+use Dotenv\Util\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Password;
 
 class LoginController extends Controller
 {
     public function showLoginForm(){
-        {
-            return view('auth.login');
+        if (Auth::check()) {
+            return redirect()->route('index'); // Chuyển hướng đến trang đăng nhập
         }
+        return view('auth.login');        
+    }
+    public function showForgotPasswordForm(){
+        if (Auth::check()) {
+            return redirect()->route('index'); // Chuyển hướng đến trang đăng nhập
+        }
+        return view('auth.forgotpassword');    
+    }
+    public function showResetForm($token)
+    {
+        if (Auth::check()) {
+            return redirect()->route('index'); // Chuyển hướng đến trang đăng nhập
+        }
+        return view('auth.resetpassword', ['token' => $token]);
     }
     public function login(Request $request)
     {
@@ -37,4 +53,22 @@ class LoginController extends Controller
         Auth::logout();
         return redirect()->route('index');
     }
+    
+    //send link password
+    public function sendResetLinkEmail(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+        ]);
+
+        $status = Password::sendResetLink(
+            $request->only('email')
+        );
+
+        return $status === Password::RESET_LINK_SENT
+            ? back()->with('status', trans($status))
+            : back()->withErrors(['email' => trans($status)]);
+    }
+    //reset
+   
 }

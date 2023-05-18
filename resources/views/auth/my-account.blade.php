@@ -23,8 +23,25 @@
                             <div class="sidebar-title">
                                 <h2>Shopping Options</h2>
                             </div>
+                            <div class="single-sidebar">
+                                <div class="single-sidebar-title">
+                                    <h3>Feature</h3>
+                                </div>
+                                <div class="single-sidebar-content">
+                                    <ul>
+                                        
+                                        <li>
+                                            <a href="{{ route('change.password') }}">
+                                                Change Password
+                                            </a>
+                                        </li>
+                                        
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                   
                     <div class="col-sm-9">
                         <div class="my-account-accordion">
                             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">

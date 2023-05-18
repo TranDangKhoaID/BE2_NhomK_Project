@@ -29,6 +29,20 @@
                         <div class="my-account-accordion">
                             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                                 <div class="panel panel-default">
+                                @if (session('success'))
+                                    <div class="alert alert-success">
+                                        {{ session('success') }}
+                                    </div>
+                                @endif
+                                @if ($errors->any())
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                               @endif
                                     <div class="panel-heading" role="tab" id="headingOne">
                                         <h4 class="panel-title">
                                             <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -103,81 +117,43 @@
                                         <div class="panel-body">
                                             <div class="col-md-12">
                                                 <div class="delivery-details">
-                                                    <form action="#">
-                                                        <div class="list-style">
-                                                            <div class="account-title">
-                                                                <h4>Please be sure to update your personal information if it has changed. </h4>
-                                                            </div>
-                                                            <div class="form-name">
-                                                                <label>First Name <em>*</em> </label>
-                                                                <input type="text" placeholder="First Name">
-                                                            </div>
-                                                            <div class="form-name">
-                                                                <label>Last Name <em>*</em> </label>
-                                                                <input type="text" placeholder="Last Name">
-                                                            </div>
-                                                            <div class="form-name">
-                                                                <label>Company </label>
-                                                                <input type="text" placeholder="Company">
-                                                            </div>
-                                                            <div class="form-name">
-                                                                <label>Address 1 <em>*</em> </label>
-                                                                <input type="text" placeholder="Address 1">
-                                                            </div>
-                                                            <div class="form-name">
-                                                                <label>Address 2 <em>*</em> </label>
-                                                                <input type="text" placeholder="Address 2">
-                                                            </div>
-                                                            <div class="form-name">
-                                                                <label>City <em>*</em> </label>
-                                                                <input type="text" placeholder="City">
-                                                            </div>
-                                                            <div class="form-name">
-                                                                <label>Post Code <em>*</em> </label>
-                                                                <input type="text" placeholder="Post Code">
-                                                            </div>
-                                                            <div class="form-name">
-                                                                <label> country <em>*</em> </label>
-                                                                <select>
-                                                                    <option value="1">---Please select---</option>
-                                                                    <option value="1">Afghanistan</option>
-                                                                    <option value="1">Algeria</option>
-                                                                    <option value="1">American Samoa</option>
-                                                                    <option value="1">Australia</option>
-                                                                    <option value="1">Bangladesh</option>
-                                                                    <option value="1">Belgium</option>
-                                                                    <option value="1">Bosnia and Herzegovina</option>
-                                                                    <option value="1">Chile</option>
-                                                                    <option value="1">China</option>
-                                                                    <option value="1">Egypt</option>
-                                                                    <option value="1">Finland</option>
-                                                                    <option value="1">France</option>
-                                                                    <option value="1">United State</option>
-                                                                </select>
-                                                            </div>
-                                                            <div class="form-name">
-                                                                <label> State/Province </label>
-                                                                <select>
-                                                                    <option value="1">---Please select---</option>
-                                                                    <option value="1">Arizona</option>
-                                                                    <option value="1">Armed Forces Africa</option>
-                                                                    <option value="1">California</option>
-                                                                    <option value="1">Florida</option>
-                                                                    <option value="1">Indiana</option>
-                                                                    <option value="1">Marshall Islands</option>
-                                                                    <option value="1">Minnesota</option>
-                                                                    <option value="1">New Mexico</option>
-                                                                    <option value="1">Utah</option>
-                                                                    <option value="1">Virgin Islands</option>
-                                                                    <option value="1">West Virginia</option>
-                                                                    <option value="1">Wyoming</option>
-                                                                </select>
-                                                            </div>
-                                                            <div class="save-button">
-                                                                <button>save</button>
-                                                            </div>
+                                                <form action="{{ route('account.update.profile') }}" method="POST">
+                                                    @csrf
+                                                    <div class="list-style">
+                                                        <div class="account-title">
+                                                            <h4>Please be sure to update your personal information if it has changed.</h4>
                                                         </div>
-                                                    </form>
+                                                        <div class="form-name">
+                                                            <label>First Name <em>*</em></label>
+                                                            <input type="text" name="fname" placeholder="First Name" value="{{ $profile->fname ?? '' }}">
+                                                        </div>
+                                                        <div class="form-name">
+                                                            <label>Last Name <em>*</em></label>
+                                                            <input type="text" name="lname" placeholder="Last Name" value="{{ $profile->lname ?? '' }}">
+                                                        </div>
+
+                                                        <div class="form-name">
+                                                            <label>Address<em>*</em></label>
+                                                            <input type="text" name="address" placeholder="Address" value="{{ $profile->address ?? '' }}">
+                                                        </div>
+                                                        <div class="form-name">
+                                                            <label>City <em>*</em></label>
+                                                            <input type="text" name="city" placeholder="City" value="{{ $profile->city ?? '' }}">
+                                                        </div>
+                                                        <div class="form-name">
+                                                            <label>Phone <em>*</em></label>
+                                                            <input type="text" name="phone" placeholder="Phone" value="{{ $profile->phone ?? '' }}">
+                                                        </div>
+                                                        <div class="form-name">
+                                                            <label>Post Code <em>*</em></label>
+                                                            <input type="text" name="post_code" placeholder="Post Code" value="{{ $profile->post_code ?? '' }}">
+                                                        </div>
+                                                        <div class="save-button">
+                                                            <button>Save</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+
                                                 </div>
                                             </div>
                                         </div>

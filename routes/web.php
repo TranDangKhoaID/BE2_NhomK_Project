@@ -155,6 +155,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/auth.my-account', [AccountController::class, 'showAcountForm'])->name('account');
     Route::get('/auth.my-account/billing/{id}', [AccountController::class, 'showBillingForm'])->name('billing');
+    //profile update
+    Route::get('/auth.my-account/profile', [AccountController::class, 'indexProfile'])->name('profile');
+    Route::post('/auth.my-account/update', [AccountController::class, 'updateProfile'])->name('account.update.profile');
 });
 
 

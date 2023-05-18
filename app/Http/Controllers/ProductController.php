@@ -16,8 +16,9 @@ class ProductController extends Controller
     public function showAll()
     {
         $products = Product::all();
+        $newProducts = Product::latest('created_at')->take(10)->get();
         $loggedInUserId = Auth::id();
-        return view('index', compact('products','loggedInUserId'));
+        return view('index', compact('products','newProducts','loggedInUserId'));
     }
     public function showAllShop()
     {

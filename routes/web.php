@@ -121,7 +121,7 @@ Route::post('/auth.register', [RegisterController::class, 'register'])->name('re
 Route::get('/auth.login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/auth.login', [LoginController::class, 'login'])->name('login.submit');
 // Trang chủ (index)
-Route::get('/', [ProductController::class, 'showAll']);
+Route::get('/', [MyController::class, 'index']);
 Route::get('/index', [MyController::class, 'index'])->name('index');
 //shop list and sort
 Route::get('/shop', [ProductController::class, 'showAllShop'])->name('shop');

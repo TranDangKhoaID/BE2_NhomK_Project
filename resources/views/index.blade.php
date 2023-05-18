@@ -99,7 +99,7 @@
                 </div>
                 <div class="row">
                     <div class="new-product-slider">
-                        @foreach ($products as $product)
+                        @foreach ($newProducts as $product)
                         <div class="col-md-12">
                             <div class="single-product">
                                 <div class="level-pro-new">

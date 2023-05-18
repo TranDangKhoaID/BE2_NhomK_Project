@@ -13,6 +13,7 @@ class MyController extends Controller
     {
         // Lấy danh sách sản phẩm từ cơ sở dữ liệu hoặc bất kỳ nguồn dữ liệu nào khác
         $products = Product::all();
+        $newProducts = Product::latest('created_at')->take(10)->get();
         $loggedInUserId = Auth::id();
 
         $carts = Cart::where('user_id', $loggedInUserId)->get();
@@ -23,7 +24,7 @@ class MyController extends Controller
             $productCount[$product->id] = $count;
         }
 
-        return view('index', compact('products', 'loggedInUserId', 'productCount'));
+        return view('index', compact('newProducts','products', 'loggedInUserId', 'productCount'));
 
     }
 }

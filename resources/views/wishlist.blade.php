@@ -55,6 +55,11 @@
                         </div>
                     </div>
                     <div class="col-sm-9">
+                        @if(session('success'))
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                        @endif
                         <div class="wishlist-banner">
                             <a href="#">
                                 <img src="img/checkout/checkout_banner.jpg" alt="">
@@ -70,58 +75,30 @@
                                         <tr>
                                             <th>Image</th>
                                             <th>Product Name</th>
-                                            <th>Model</th>
-                                            <th>Stock</th>
                                             <th>Unit Price</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach ($wishs as $wish)      
                                         <tr>
-                                            <td><a href="#" class="text-center"><img src="img/wishlist/1.png" alt=""> </a></td>
+                                            <td><a href="#" class="text-center"><img src="{{ asset('img/product/' . $wish->image) }}" alt=""  width="80" height="80"> </a></td>
                                             <td>
-                                                <a href="single-product.html">More-Or-Less</a>
+                                                <a href="single-product.html">{{ $wish->name }}</a>
                                             </td>
-                                            <td>Product 14</td>
-                                            <td>In Stock</td>
-                                            <td class="unit-price">$100.00</td>
+                                            <td class="unit-price">${{ $wish->price }}</td>
                                             <td>
                                                 <div class="wishlist-actions">
-                                                    <button type="button" data-toggle="tooltip" title="Add to Cart"> <i class="fa fa-shopping-cart"></i> </button>
-                                                    <button type="button" data-toggle="tooltip" title="Remove"> <i class="fa fa-times"></i> </button>
+                                                    <form action="{{ route('wishlist.remove', ['productId' => $wish->product_id]) }}" method="post">
+                                                        @csrf
+                                                        <input type="hidden" name="product_id" value="{{ $wish->product_id }}">
+                                                        <input type="hidden" name="userID" value="{{ $wish->user_id }}">
+                                                        <button type="submit" data-toggle="tooltip" title="Remove"> <i class="fa fa-times"></i> </button>
+                                                    </form>
                                                 </div>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td> <a href="#" class="text-center"><img src="img/wishlist/2.png" alt=""> </a> </td>
-                                            <td>
-                                                <a href="single-product.html">Aliquam Consequat</a>
-                                            </td>
-                                            <td>Product 14</td>
-                                            <td>In Stock</td>
-                                            <td class="unit-price">$90.00</td>
-                                            <td>
-                                                <div class="wishlist-actions">
-                                                    <button type="button" data-toggle="tooltip" title="Add to Cart"> <i class="fa fa-shopping-cart"></i> </button>
-                                                    <button type="button" data-toggle="tooltip" title="Remove"> <i class="fa fa-times"></i> </button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#" class="text-center"><img src="img/wishlist/1.png" alt=""> </a></td>
-                                            <td>
-                                                <a href="single-product.html">More-Or-Less</a>
-                                            </td>
-                                            <td>Product 14</td>
-                                            <td>In Stock</td>
-                                            <td class="unit-price">$100.00</td>
-                                            <td>
-                                                <div class="wishlist-actions">
-                                                    <button type="button" data-toggle="tooltip" title="Add to Cart"> <i class="fa fa-shopping-cart"></i> </button>
-                                                    <button type="button" data-toggle="tooltip" title="Remove"> <i class="fa fa-times"></i> </button>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

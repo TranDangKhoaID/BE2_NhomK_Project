@@ -17,6 +17,11 @@
                         </div>
                     </div>
                 </div>
+                @if(session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+                @endif
                 <div class="row">
                     <div class="col-md-12">
                         <div class="table-responsive">
@@ -47,10 +52,22 @@
                                                 </div>
                                             @endif
                                             <td class="cart-product-name">
+                                                
                                                 <a href="single-product.html">{{$cart->name}}</a>
+                                                
                                             </td>
                                             <td class="move-wishlist">
-                                                <a href="#">Move</a>
+                                                <form action="{{ route('wishlist.add') }}" method="post">
+                                                @csrf
+                                                    <input type="hidden" name="name" value="{{ $cart->name }}">
+                                                    <input type="hidden" name="price" value="{{ $cart->price }}">
+                                                    <input type="hidden" name="image" value="{{ $cart->image }}">
+                                                    <input type="hidden" name="product_id" value="{{ $cart->product_id }}">
+                                                    <input type="hidden" name="userID" value="{{ $cart->user_id }}">
+                                                    <button type="submit" class="btn btn-labeled btn-danger">
+                                                        <span class="btn-label"><i class="fa fa-heart"></i></span>Move
+                                                    </button>
+                                                </form>
                                             </td>
                                             <td class="unit-price">
                                                 <span>{{$cart->price}}</span>

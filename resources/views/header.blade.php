@@ -97,7 +97,7 @@
                                                 @auth
                                                     <!-- Hiển thị các mục menu cho người dùng đã đăng nhập -->
                                                     <li><a href="{{ route('account') }}">my account</a></li>
-                                                    <li><a href="wishlist.html">my wishlist</a></li>
+                                                    <li><a href="{{ route('wishlist') }}">my wishlist</a></li>
                                                     <li><a href="{{ route('cart') }}">my cart</a></li>
                                                     <li><a href="{{ route('blog') }}">Blog</a></li>
                                                     <li>
@@ -154,9 +154,10 @@
                                 <nav>
                                     <ul>
                                         <li><a href="/">Home</a></li>
-                                        <li><a href="/shop">Shops</a></li>
-                                        <li><a href="/shop">Blogs</a></li> 
-                                        <li><a href="/shop">About us</a></li> 
+                                        <li><a href="{{ route('shop') }}">Shops</a></li>
+                                        <li><a href="{{ route('blog') }}">Blogs</a></li> 
+                                        <li><a href="{{ route('contact') }}">Contact</a></li>
+                                        <li><a href="/about-us">About us</a></li> 
                                     </ul>
                                 </nav>
                             </div>

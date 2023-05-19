@@ -9,6 +9,7 @@ use App\Http\Controllers\CheckOutController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\WishListController;
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\AdminRegisterController;
 use App\Http\Controllers\Admin\AdminHomeController;
@@ -172,7 +173,11 @@ Route::middleware(['auth'])->group(function () {
     //change pass
     Route::get('/auth.my-account/changepassword', [AccountController::class, 'showChangePass'])->name('change.password');
     Route::post('/auth.my-account/changepassword.update', [AccountController::class, 'changePassword'])->name('change.password.update');
-    
+
+    //wish list
+    Route::get('/wishlist', [WishListController::class, 'showWishListForm'])->name('wishlist');
+    Route::post('/add-to-wishlist', [WishListController::class, 'addToWishList'])->name('wishlist.add');
+    Route::post('/wishlist/remove/{productId}', [WishListController::class, 'removeFromWishList'])->name('wishlist.remove');
 });
 
 

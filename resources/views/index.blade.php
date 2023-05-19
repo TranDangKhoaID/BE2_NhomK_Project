@@ -7,21 +7,26 @@
         <!-- slider area start -->
         <div class="slider-area home1">
             <div class="bend niceties preview-2">
+                
                 <div id="nivoslider" class="slides">
-                    <img src="img/slider/slider-1.jpg" alt="" title="#slider-direction-1"  />
-                    <img src="img/slider/slider-2.jpg" alt="" title="#slider-direction-2"  />
+                    @foreach ($sliders as $slider)
+                    <img src="{{ asset('img/slider/' . $slider->image) }} " alt="" title="#slider-direction-{{ $slider->id }}" height="410"  />
+                    @endforeach
                 </div>
-                <!-- direction 1 -->
-                <div id="slider-direction-1" class="t-cn slider-direction">
+                
+                <!-- direction -->
+                @foreach ($sliders as $slider)
+                <div id="slider-direction-{{ $slider->id }}" class="t-cn slider-direction">
                     <div class="slider-progress"></div>
-                    <div class="slider-content t-lfl s-tb slider-1">
+                    <div class="slider-content t-lfl s-tb slider-{{ $slider->id }}">
                         <div class="title-container s-tb-c title-compress">
-                            <h1 class="title1">Sale products</h1>
-                            <h2 class="title2" >nike Ari max 2015</h2>
-                            <h3 class="title3" >Lorem Ipsum is simply dummy text of the printing</h3>
+                            <h1 class="title1">{{ $slider->title1 }}</h1>
+                            <h2 class="title2" >{{ $slider->title2 }}</h2>
+                            <h3 class="title3" >{{ $slider->title3 }}</h3>
                         </div>
                     </div>
-                </div>              
+                </div> 
+                @endforeach             
             </div>
         </div>
         <!-- slider area end -->

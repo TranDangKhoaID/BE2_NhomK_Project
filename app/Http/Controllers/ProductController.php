@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Manufacture;
 use App\Models\Protype;
+use App\Models\Slider;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -16,9 +17,10 @@ class ProductController extends Controller
     public function showAll()
     {
         $products = Product::all();
+        $sliders = Slider::all();
         $newProducts = Product::latest('created_at')->take(10)->get();
         $loggedInUserId = Auth::id();
-        return view('index', compact('products','newProducts','loggedInUserId'));
+        return view('index', compact('products','newProducts','loggedInUserId','sliders'));
     }
     public function showAllShop()
     {

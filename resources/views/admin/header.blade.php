@@ -78,6 +78,9 @@
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="{{ route('admin.addblog')}}">ADD Blog</a>
                                 </nav>
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="{{ route('admin.addslider')}}">ADD Slider</a>
+                                </nav>
                             </div>
 
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseBillings" aria-expanded="false" aria-controls="collapseBillings">

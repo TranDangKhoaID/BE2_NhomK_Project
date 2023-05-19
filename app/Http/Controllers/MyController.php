@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Session;
 use App\Models\Product;
 use App\Models\Cart;
+use App\Models\Slider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,6 +16,7 @@ class MyController extends Controller
         $products = Product::all();
         $newProducts = Product::latest('created_at')->take(10)->get();
         $loggedInUserId = Auth::id();
+        $sliders = Slider::all();
 
         $carts = Cart::where('user_id', $loggedInUserId)->get();
         $productCount = [];
@@ -24,7 +26,7 @@ class MyController extends Controller
             $productCount[$product->id] = $count;
         }
 
-        return view('index', compact('newProducts','products', 'loggedInUserId', 'productCount'));
+        return view('index', compact('sliders','newProducts','products', 'loggedInUserId', 'productCount'));
 
     }
 }

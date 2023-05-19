@@ -18,6 +18,7 @@ use App\Http\Controllers\Admin\AdminManuController;
 use App\Http\Controllers\Admin\AdminProtypeController;
 use App\Http\Controllers\Admin\AdminBillingController;
 use App\Http\Controllers\Admin\AdminBlogController;
+use App\Http\Controllers\Admin\AdminSliderController;
 
 
 /*
@@ -97,6 +98,9 @@ Route::middleware(['admin'])->group(function () {
     //blogs admin
     Route::get('/admin.index/addblog', [AdminBlogController::class, 'index'])->name('admin.addblog');
     Route::post('/admin.index/addblog', [AdminBlogController::class, 'addBlog'])->name('admin.storeBlog');
+    //slider admin
+    Route::get('/admin.index/addslider', [AdminSliderController::class, 'index'])->name('admin.addslider');
+    Route::post('/admin.index/addslider', [AdminSliderController::class, 'addSlider'])->name('admin.storeSlider');
     
 });
 

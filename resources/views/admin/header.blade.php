@@ -104,17 +104,17 @@
                             </div>
 
                             <div class="sb-sidenav-menu-heading">Addon</div>
-                            <a class="nav-link" href="charts.html">
+                            <a class="nav-link" href="#">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Blogs
-                            </a>
-                            <a class="nav-link" href="charts.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Charts
                             </a>
                             <a class="nav-link" href="{{ route('admin.users') }}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Users
+                            </a>
+                            <a class="nav-link" href="{{ route('admin.users') }}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                Commets Blog
                             </a>
                         </div>
                     </div>

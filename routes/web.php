@@ -164,6 +164,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/auth.my-account/update', [AccountController::class, 'updateProfile'])->name('account.update.profile');
     //change pass
     Route::get('/auth.my-account/changepassword', [AccountController::class, 'showChangePass'])->name('change.password');
+    Route::post('/auth.my-account/changepassword.update', [AccountController::class, 'changePassword'])->name('change.password.update');
+    
 });
 
 

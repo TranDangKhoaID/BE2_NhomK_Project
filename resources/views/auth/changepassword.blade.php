@@ -13,31 +13,49 @@
           class="img-fluid" alt="Phone image">
       </div>
       <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-        <form>
+      @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+              @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+              @endforeach
+            </ul>
+        </div>
+      @endif
+      <form method="POST" action="{{ route('change.password.update') }}">
+          @csrf
 
-          <!-- New Pass input -->
+          <!-- Current Password input -->
           <div class="form-outline mb-4">
-            <input type="password" id="form1Example23" class="form-control form-control-lg" />
-            <label class="form-label" for="form1Example23">Current Password</label>
+              <input type="password" id="current_password" name="current_password" class="form-control form-control-lg @error('current_password') is-invalid @enderror" required>
+              <label class="form-label" for="current_password">Current Password</label>
+              @error('current_password')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
           </div>
-          
-          <!-- New Pass input -->
+
+          <!-- New Password input -->
           <div class="form-outline mb-4">
-            <input type="password" id="form1Example23" class="form-control form-control-lg" />
-            <label class="form-label" for="form1Example23">Password</label>
+              <input type="password" id="password" name="password" class="form-control form-control-lg @error('password') is-invalid @enderror" required>
+              <label class="form-label" for="password">New Password</label>
+              @error('password')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
           </div>
 
           <!-- Confirm Password input -->
           <div class="form-outline mb-4">
-            <input type="password" id="form1Example23" class="form-control form-control-lg" />
-            <label class="form-label" for="form1Example23">Comfirm Password</label>
+              <input type="password" id="password_confirmation" name="password_confirmation" class="form-control form-control-lg" required>
+              <label class="form-label" for="password_confirmation">Confirm Password</label>
           </div>
 
-          
           <!-- Submit button -->
           <button type="submit" class="btn btn-primary btn-lg btn-block">Change</button>
-
-        </form>
+      </form>
       </div>
     </div>
   </div>

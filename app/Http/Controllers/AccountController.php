@@ -8,6 +8,7 @@ use App\Models\ProfileUser;
 use App\Models\OrderItem;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class AccountController extends Controller
 {
@@ -69,5 +70,25 @@ class AccountController extends Controller
         // Chuyển hướng về trang account
         return redirect()->route('account');
     }    
+    public function changePassword(Request $request)
+    {
+        $request->validate([
+            'current_password' => 'required',
+            'password' => 'required|min:8|confirmed',
+        ]);
+
+        $user = Auth::user();
+
+        // Kiểm tra mật khẩu hiện tại
+        if (!Hash::check($request->input('current_password'), $user->password)) {
+            return redirect()->back()->withErrors(['current_password' => 'Mật khẩu hiện tại không chính xác.']);
+        }
+
+        // Cập nhật mật khẩu mới
+        $user->password = Hash::make($request->input('password'));
+        $user->save();
+
+        return redirect()->route('account')->with('success', 'Mật khẩu đã được thay đổi thành công.');
+    }
 
 }

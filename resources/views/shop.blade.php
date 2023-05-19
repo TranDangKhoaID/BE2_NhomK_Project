@@ -97,15 +97,6 @@
                                     </button>
                                 </form>
                             </div>
-                            <div class="search-box">
-                            <form action="{{ route('search.products') }}" method="GET">
-                                <input type="text" name="search" placeholder="Search">
-                                <button type="submit">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </form>
-
-                            </div>
                         </div>
                         <div class="row">
                             <div class="product-content">

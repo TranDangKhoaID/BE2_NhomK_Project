@@ -72,6 +72,19 @@
                             <div class="dashboard">
                                 <div class="account-menu">
                                     <ul>
+                                        <li class="search">
+                                            <a href="#">
+                                                <i class="fa fa-search"></i>
+                                            </a>
+                                            <ul class="search">
+                                                <li>
+                                                    <form action="{{ route('search.products') }}" method="GET">
+                                                        <input type="text" name="search" placeholder="Search">
+                                                        <button type="submit"> <i class="fa fa-search"></i> </button>
+                                                    </form>
+                                                </li>
+                                            </ul>
+                                        </li>
                                         <li>
                                             <a href="#">
                                                 <i class="fa fa-bars"></i>

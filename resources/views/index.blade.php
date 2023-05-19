@@ -10,7 +10,7 @@
                 
                 <div id="nivoslider" class="slides">
                     @foreach ($sliders as $slider)
-                    <img src="{{ asset('img/slider/' . $slider->image) }} " alt="" title="#slider-direction-{{ $slider->id }}" height="410"  />
+                    <img src="{{ asset('img/slider/' . $slider->image) }} " alt="" title="#slider-direction-{{ $slider->id }}"/>
                     @endforeach
                 </div>
                 

@@ -103,9 +103,10 @@
                                                     <li>
                                                     <form action="{{ route('auth.logout') }}" method="post">
                                                         @csrf
-                                                        <button type="submit">Đăng xuất</button>
+                                                        <button type="submit" class="btn btn-outline-primary">
+                                                            <i class="fa fa-sign-out"></i> Logout
+                                                        </button>
                                                     </form>
-
                                                     </li>
                                                 @endauth
                                             </ul>
@@ -130,7 +131,7 @@
                     <div class="row">
                         <div class="col-md-3">
                             <div class="logo">
-                                <a href="">
+                                <a href="{{ route('index') }}">
                                     <img src="{{ asset('img/logo.png')}}" alt="">
                                 </a>
                             </div>

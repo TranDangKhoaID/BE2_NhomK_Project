@@ -12,6 +12,11 @@ class AdminBlogController extends Controller
     {
         return view('admin.addblog');
     }
+    public function indexListBlogs()
+    {
+        $blogs = Blog::paginate(4);;
+        return view('admin.blogs', compact('blogs'));
+    }
     public function addBlog(Request $request){
         $request->validate([
             'title' => 'required',
@@ -31,5 +36,16 @@ class AdminBlogController extends Controller
         } 
         $blog->save();
         return redirect()->route('admin.addblog')->with('success', 'Blog added successfully.');
+    }
+    public function deleteBlog($id)
+    {
+        // Tìm sản phẩm cần xóa
+        $blog = Blog::findOrFail($id);
+
+        // Xóa sản phẩm
+        $blog->delete();
+
+        // Chuyển hướng về trang danh sách sản phẩm hoặc trang khác
+        return redirect()->route('admin.blogs')->with('success', 'Sản phẩm đã được xóa thành công.');
     }
 }

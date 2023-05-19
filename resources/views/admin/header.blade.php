@@ -29,7 +29,9 @@
                         <li>
                         <form action="{{ route('admin.logout') }}" method="post">
                             @csrf
-                            <button type="submit">Logout</button>
+                            <button type="submit" class="btn btn-outline-primary">
+                                <i class="fa fa-sign-out"></i> Logout
+                            </button>
                         </form>
                         </li>
                     </ul>
@@ -104,7 +106,7 @@
                             </div>
 
                             <div class="sb-sidenav-menu-heading">Addon</div>
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{{ route('admin.blogs') }}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Blogs
                             </a>

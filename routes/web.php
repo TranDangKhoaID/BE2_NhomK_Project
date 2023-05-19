@@ -97,7 +97,11 @@ Route::middleware(['admin'])->group(function () {
     
     //blogs admin
     Route::get('/admin.index/addblog', [AdminBlogController::class, 'index'])->name('admin.addblog');
+    Route::get('/admin.index/blogs', [AdminBlogController::class, 'indexListBlogs'])->name('admin.blogs');
     Route::post('/admin.index/addblog', [AdminBlogController::class, 'addBlog'])->name('admin.storeBlog');
+    Route::delete('/admin.index/deleteblogs/{id}', [AdminBlogController::class, 'deleteBlog'])->name('admin.deleteblog');
+
+
     //slider admin
     Route::get('/admin.index/addslider', [AdminSliderController::class, 'index'])->name('admin.addslider');
     Route::post('/admin.index/addslider', [AdminSliderController::class, 'addSlider'])->name('admin.storeSlider');
@@ -109,7 +113,7 @@ Route::get('/about-us', function () {
     return view('about-us');
 });
 Route::get('/wishlist', function () {
-    return view('whistlist');
+    return view('wishlist');
 });
 
 //customer

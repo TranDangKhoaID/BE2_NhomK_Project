@@ -21,7 +21,7 @@
                     <div class="col-sm-3">
                         <div class="product-sidebar">
                             <div class="sidebar-title">
-                                <h2>Shopping Options</h2>
+                                <h2>Contact Options</h2>
                             </div>
                             <div class="single-sidebar">
                                 <div class="single-sidebar-title">
@@ -36,21 +36,7 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="single-sidebar">
-                                <div class="single-sidebar-title">
-                                    <h3>Color</h3>
-                                </div>
-                                <div class="single-sidebar-content">
-                                    <ul>
-                                        <li><a href="#">Black (2)</a></li>
-                                        <li><a href="#">Blue (2)</a></li>
-                                        <li><a href="#">Green (4)</a></li>
-                                        <li><a href="#">Grey (2)</a></li>
-                                        <li><a href="#">Red (2)</a></li>
-                                        <li><a href="#">White (2)</a></li>
-                                    </ul>
-                                </div>
-                            </div>
+                            
                             <div class="single-sidebar">
                                 <div class="single-sidebar-title">
                                     <h3>Manufacturer</h3>
@@ -71,54 +57,72 @@
                     </div>
                     <div class="col-sm-9">
                         <div class="contact-info">
-                            <div id="googleMap"></div>
+                        @if(session('success'))
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                             <div class="contact-details">
-                                <div class="contact-title">
-                                    <h3>contact us</h3>
-                                </div>
-                                <div class="contact-form">
-                                    <div class="form-title">
-                                        <h4>contact information</h4>
+                                <form action="{{ route('add.contact') }}" method="POST"> 
+                                    @csrf 
+                                    <div class="contact-title">
+                                        <h3>contact us</h3>
                                     </div>
-                                    <div class="form-content">
-                                        <ul>
-                                            <li>
-                                                <div class="form-box">
-                                                    <div class="form-name">
-                                                        <label>Name <em>*</em> </label>
-                                                        <input type="text">
-                                                    </div>
-                                                </div>
-                                                <div class="form-box">
-                                                    <div class="form-name">
-                                                        <label>Email <em>*</em> </label>
-                                                        <input type="email">
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="form-box">
-                                                    <div class="form-name">
-                                                        <label>telephone </label>
-                                                        <input type="text">
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="form-box">
-                                                    <div class="form-name">
-                                                        <label>Comment <em>*</em> </label>
-                                                        <textarea cols="5" rows="3"></textarea>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
+                                    <div class="contact-form">
+                                        <div class="form-title">
+                                            <h4>contact information</h4>
+                                        </div>
+                                        <div class="form-content">
+                                            <ul>
+                                                
+                                                    <li>
+                                                        <div class="form-box">
+                                                            <div class="form-name">
+                                                                <label>Name <em>*</em> </label>
+                                                                <input name="name" type="text">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-box">
+                                                            <div class="form-name">
+                                                                <label>Email <em>*</em> </label>
+                                                                <input name="email" type="email">
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="form-box">
+                                                            <div class="form-name">
+                                                                <label>telephone </label>
+                                                                <input name="phone" type="text">
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="form-box">
+                                                            <div class="form-name">
+                                                                <label>Comment <em>*</em> </label>
+                                                                <textarea name="comment" cols="5" rows="3"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                
+                                            </ul>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="buttons-set">
-                                    <p> <em>*</em> Required Fields</p>
-                                    <button type="submit">submit</button>
-                                </div>
+                                    <div class="buttons-set">
+                                        <p> <em>*</em> Required Fields</p>
+                                        <button type="submit">submit</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>

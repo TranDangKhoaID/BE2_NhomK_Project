@@ -129,6 +129,7 @@
                                         <li><a href="{{ route('index') }}">Home</a></li>
                                         <li><a href="{{ route('shop') }}">Shop</a></li>
                                         <li><a href="{{ route('blog') }}">Blogs</a></li> 
+                                        <li><a href="{{ route('contact') }}">Contact</a></li> 
                                         <li><a href="/about-us">About us</a></li> 
                                     </ul>
                                 </nav>

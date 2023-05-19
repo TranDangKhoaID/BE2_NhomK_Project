@@ -8,6 +8,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckOutController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\AdminRegisterController;
 use App\Http\Controllers\Admin\AdminHomeController;
@@ -144,6 +145,9 @@ Route::get('/products/{id}', [ProductController::class, 'showProductDetail'])->n
 //blog
 Route::get('/blogs', [BlogController::class, 'showAll'])->name('blog');
 Route::get('/blogs/{id}', [BlogController::class, 'showBlogDetail'])->name('blog.showBlogDetail');
+//contact
+Route::get('/contact', [ContactController::class, 'showContactForm'])->name('contact');
+Route::post('/addcontact', [ContactController::class, 'addContact'])->name('add.contact');
 
 
 //các tuyến của khách hàng

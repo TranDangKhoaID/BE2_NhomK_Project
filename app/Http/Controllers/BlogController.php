@@ -9,7 +9,7 @@ class BlogController extends Controller
 {
     public function showAll()
     {
-        $blogs = Blog::all();
+        $blogs = Blog::paginate(4);
         return view('blog', compact('blogs'));
     }
     public function showBlogDetail($id)

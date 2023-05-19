@@ -72,6 +72,19 @@
                             <div class="dashboard">
                                 <div class="account-menu">
                                     <ul>
+                                        <li class="search">
+                                            <a href="#">
+                                                <i class="fa fa-search"></i>
+                                            </a>
+                                            <ul class="search">
+                                                <li>
+                                                    <form action="{{ route('search.products') }}" method="GET">
+                                                        <input type="text" name="search" placeholder="Search">
+                                                        <button type="submit"> <i class="fa fa-search"></i> </button>
+                                                    </form>
+                                                </li>
+                                            </ul>
+                                        </li>
                                         <li>
                                             <a href="#">
                                                 <i class="fa fa-bars"></i>
@@ -84,15 +97,16 @@
                                                 @auth
                                                     <!-- Hiển thị các mục menu cho người dùng đã đăng nhập -->
                                                     <li><a href="{{ route('account') }}">my account</a></li>
-                                                    <li><a href="wishlist.html">my wishlist</a></li>
+                                                    <li><a href="{{ route('wishlist') }}">my wishlist</a></li>
                                                     <li><a href="{{ route('cart') }}">my cart</a></li>
                                                     <li><a href="{{ route('blog') }}">Blog</a></li>
                                                     <li>
                                                     <form action="{{ route('auth.logout') }}" method="post">
                                                         @csrf
-                                                        <button type="submit">Đăng xuất</button>
+                                                        <button type="submit" class="btn btn-outline-primary">
+                                                            <i class="fa fa-sign-out"></i> Logout
+                                                        </button>
                                                     </form>
-
                                                     </li>
                                                 @endauth
                                             </ul>
@@ -117,7 +131,7 @@
                     <div class="row">
                         <div class="col-md-3">
                             <div class="logo">
-                                <a href="">
+                                <a href="{{ route('index') }}">
                                     <img src="{{ asset('img/logo.png')}}" alt="">
                                 </a>
                             </div>
@@ -140,9 +154,10 @@
                                 <nav>
                                     <ul>
                                         <li><a href="/">Home</a></li>
-                                        <li><a href="/shop">Shops</a></li>
-                                        <li><a href="/shop">Blogs</a></li> 
-                                        <li><a href="/shop">About us</a></li> 
+                                        <li><a href="{{ route('shop') }}">Shops</a></li>
+                                        <li><a href="{{ route('blog') }}">Blogs</a></li> 
+                                        <li><a href="{{ route('contact') }}">Contact</a></li>
+                                        <li><a href="/about-us">About us</a></li> 
                                     </ul>
                                 </nav>
                             </div>

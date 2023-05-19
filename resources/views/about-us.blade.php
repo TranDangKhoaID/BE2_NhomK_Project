@@ -21,12 +21,12 @@
                     <div class="row">
                         <div class="col-md-7 col-sm-7">
                             <div class="about-page-content">
-                                <h3>The standard lorem ipsum passage</h3>
-                                <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</p>
+                                <h3>Back-end Programming 2 - E-commerce Website Project</h3>
+                                <p>Our Ecommerce Website project is the result of a combination of extensive back-end programming knowledge and creative thinking. We have applied popular programming languages and frameworks to build a powerful and flexible back-end system.</p>
                                 <blockquote>
-                                    <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur</p>
+                                    <p>Back-end 2 programming is a fascinating and interesting subject in the IT curriculum. In this course, we collaborated and created a remarkable project - a potential e-commerce website. Our Ecommerce Website project is the result of a combination of extensive back-end programming knowledge and creative thinking. We have applied popular programming languages and frameworks to build a powerful and flexible back-end system.</p>
                                 </blockquote>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eu nisi ac mi malesuada vestibulum. Phasellus tempor nunc eleifend cursus molestie. Mauris lectus arcu, pellentesque at sodales sit amet, condimentum id nunc. Donec ornare mattis suscipit. Praesent fermentum accumsan vulputate.</p>
+                                <p>With the knowledge and skills learned from Back-end 2 programming, we are confident that the E-commerce website project will be an impressive and remarkable product. We have put effort and passion into every detail to ensure that our website delivers real value to our customers and contributes to the growth of e-commerce.</p>
                             </div>
                         </div>
                         <div class="col-md-5 col-sm-5">
@@ -48,53 +48,52 @@
                         <div class="col-md-3 col-sm-4">
                             <div class="single-member">
                                 <div class="member-info">
-                                    <img src="img/about/1.jpg" alt="">
+                                    <img src="img/about/khoa.jpg" alt="">
                                     <div class="member-social-profile">
-                                        <a href="#"> <i class="fa fa-facebook"></i> </a>
-                                        <a href="#"> <i class="fa fa-twitter"></i> </a>
+                                        <a href="https://www.facebook.com/khoasilvertail/"> <i class="fa fa-facebook"></i> </a>
                                     </div>
                                 </div>
-                                <h3>Havier Macherano</h3>
-                                <p>Developer</p>
+                                <h3>Trần Đăng Khoa</h3>
+                                <p>Mobile Developer (Leader)</p>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-4">
                             <div class="single-member">
                                 <div class="member-info">
-                                    <img src="img/about/2.jpg" alt="">
+                                    <img src="img/about/hieu.jpg" alt="">
                                     <div class="member-social-profile">
-                                        <a href="#"> <i class="fa fa-facebook"></i> </a>
-                                        <a href="#"> <i class="fa fa-twitter"></i> </a>
+                                        <a href="https://www.facebook.com/lee.hiu.71"> <i class="fa fa-facebook"></i> </a>
+                                       
                                     </div>
                                 </div>
-                                <h3>Luka Biglia</h3>
-                                <p>Programmer</p>
+                                <h3>Lê Minh Hiếu</h3>
+                                <p>Website Developer</p>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-4">
                             <div class="single-member">
                                 <div class="member-info">
-                                    <img src="img/about/3.jpg" alt="">
+                                    <img src="img/about/phan.jpg" alt="">
                                     <div class="member-social-profile">
-                                        <a href="#"> <i class="fa fa-facebook"></i> </a>
-                                        <a href="#"> <i class="fa fa-twitter"></i> </a>
+                                        <a href="https://www.facebook.com/tranphanleader"> <i class="fa fa-facebook"></i> </a>
+                                       
                                     </div>
                                 </div>
-                                <h3>Anzo Perez</h3>
-                                <p>Designer</p>
+                                <h3>Trần Đức Hưng Phấn</h3>
+                                <p>Mobile Developer</p>
                             </div>
                         </div>
                         <div class="col-md-3 hidden-sm">
                             <div class="single-member">
                                 <div class="member-info">
-                                    <img src="img/about/4.jpg" alt="">
+                                    <img src="img/about/lananh.jpg" alt="">
                                     <div class="member-social-profile">
-                                        <a href="#"> <i class="fa fa-facebook"></i> </a>
-                                        <a href="#"> <i class="fa fa-twitter"></i> </a>
+                                        <a href="https://www.facebook.com/EmmaLananh"> <i class="fa fa-facebook"></i> </a>
+                                        
                                     </div>
                                 </div>
-                                <h3>Martin Demichelis</h3>
-                                <p>PHP Developer</p>
+                                <h3>Nguyễn Thị Lan Anh</h3>
+                                <p>Tester</p>
                             </div>
                         </div>
                     </div>

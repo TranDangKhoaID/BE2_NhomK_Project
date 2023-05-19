@@ -164,59 +164,21 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="blog-post">
+                        @foreach ($blogs as $blog)
                         <div class="single-blog-post">
                             <div class="blog-img">
                                 <a href="blog-details.html">
-                                    <img src="img/blog/1.jpg" alt="">
+                                    <img src="{{ asset('img/blog/' . $blog->image) }}" alt="" width="130" height="100">
                                 </a>
                             </div>
                             <div class="blog-content">
-                                <a href="blog-details.html" class="blog-title">Lorem ipsum dolor sit amet</a>
-                                <span><a href="#">By plaza themes - </a>17 Aug 2015 ( 0 comments )</span>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna...</p>
-                                <a href="blog-details.html" class="readmore">read more ></a>
+                                <a href="blog-details.html" class="blog-title">{{ $blog->title }}</a>
+                                <span><a href="#">By {{ $blog->author }} - </a>{{ $blog->created_at }} ( 0 comments )</span>
+                                <p>{{ $blog->content }}</p>
+                                <a href="{{route('blog.showBlogDetail', ['id' => $blog->id]) }}" class="readmore">read more ></a>
                             </div>
                         </div>
-                            <div class="single-blog-post">
-                            <div class="blog-img">
-                                <a href="blog-details.html">
-                                    <img src="img/blog/2.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="blog-content">
-                                <a href="blog-details.html" class="blog-title">Lorem ipsum dolor sit amet</a>
-                                <span><a href="#">By plaza themes - </a>17 Aug 2015 ( 0 comments )</span>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna...</p>
-                                <a href="blog-details.html" class="readmore">read more ></a>
-                            </div>
-                            </div>
-                        </div>
-                        <div class="single-blog-post">
-                            <div class="blog-img">
-                                <a href="blog-details.html">
-                                    <img src="img/blog/3.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="blog-content">
-                                <a href="blog-details.html" class="blog-title">Lorem ipsum dolor sit amet</a>
-                                <span><a href="#">By plaza themes - </a>17 Aug 2015 ( 0 comments )</span>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna...</p>
-                                <a href="blog-details.html" class="readmore">read more ></a>
-                            </div>
-                        </div>
-                        <div class="single-blog-post">
-                            <div class="blog-img">
-                                <a href="blog-details.html">
-                                    <img src="img/blog/4.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="blog-content">
-                                <a href="blog-details.html" class="blog-title">Lorem ipsum dolor sit amet</a>
-                                <span><a href="#">By plaza themes - </a>17 Aug 2015 ( 0 comments )</span>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna...</p>
-                                <a href="blog-details.html" class="readmore">read more ></a>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

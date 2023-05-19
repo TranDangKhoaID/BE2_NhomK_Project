@@ -26,7 +26,7 @@
                     <div class="col-sm-3">
                         <div class="product-sidebar">
                             <div class="sidebar-title">
-                                <h2>Shopping Options</h2>
+                                <h2>Blogging Options</h2>
                             </div>
                             <div class="single-sidebar">
                                 <div class="single-sidebar-title">
@@ -38,21 +38,6 @@
                                         <li><a href="#">shoes (6)</a></li>
                                         <li><a href="#">Handbags (1)</a></li>
                                         <li><a href="#">Clothing (3)</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="single-sidebar">
-                                <div class="single-sidebar-title">
-                                    <h3>Color</h3>
-                                </div>
-                                <div class="single-sidebar-content">
-                                    <ul>
-                                        <li><a href="#">Black (2)</a></li>
-                                        <li><a href="#">Blue (2)</a></li>
-                                        <li><a href="#">Green (4)</a></li>
-                                        <li><a href="#">Grey (2)</a></li>
-                                        <li><a href="#">Red (2)</a></li>
-                                        <li><a href="#">White (2)</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -104,15 +89,7 @@
                                 </div>
                             </div>
                             <div class="col-md-12">
-                                <div class="toolbar-bottom">
-                                    <ul>
-                                        <li><span>Pages:</span></li>
-                                        <li class="current"><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#"> <img src="img/product/pager_arrow_right.gif" alt=""> </a></li>
-                                    </ul>
-                                </div>
+                            {{ $blogs->links() }}
                             </div>
                         </div>
                     </div>

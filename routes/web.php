@@ -110,7 +110,7 @@ Route::middleware(['admin'])->group(function () {
 });
 
 
-Route::get('/about-us', function () {
+Route::get('/about-nhomk', function () {
     return view('about-us');
 });
 Route::get('/wishlist', function () {

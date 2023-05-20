@@ -188,9 +188,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="account-button">
-                                <div class="back-btn"> <a href="#">Back to your Account</a> </div>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>

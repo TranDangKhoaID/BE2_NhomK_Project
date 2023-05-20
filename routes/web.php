@@ -102,11 +102,16 @@ Route::middleware(['admin'])->group(function () {
     Route::post('/admin.index/addblog', [AdminBlogController::class, 'addBlog'])->name('admin.storeBlog');
     Route::delete('/admin.index/deleteblogs/{id}', [AdminBlogController::class, 'deleteBlog'])->name('admin.deleteblog');
 
-
     //slider admin
     Route::get('/admin.index/addslider', [AdminSliderController::class, 'index'])->name('admin.addslider');
     Route::post('/admin.index/addslider', [AdminSliderController::class, 'addSlider'])->name('admin.storeSlider');
     
+    //comments admin
+    Route::get('/admin.index/comments', [AdminBlogController::class, 'indexComments'])->name('admin.comments');
+    Route::get('/admin.index/comments.report', [AdminBlogController::class, 'indexCommentsReported'])->name('admin.comments.report');
+    Route::get('/admin.index/comments.report/{id}', [AdminBlogController::class, 'reportComment'])->name('admin.comments.reported');
+    Route::delete('/admin.index/deletecomments/{id}', [AdminBlogController::class, 'deleteComment'])->name('admin.deletecomment');
+
 });
 
 Route::get('/about-us', function () {
@@ -175,6 +180,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/wishlist', [WishListController::class, 'showWishListForm'])->name('wishlist');
     Route::post('/add-to-wishlist', [WishListController::class, 'addToWishList'])->name('wishlist.add');
     Route::post('/wishlist/remove/{productId}', [WishListController::class, 'removeFromWishList'])->name('wishlist.remove');
+
+    //add comment
+    Route::post('/addcomment', [BlogController::class, 'addComment'])->name('add.comment');
+    Route::get('/comment.reported/{id}', [BlogController::class, 'reportComment'])->name('comment.reported');
 });
 
 

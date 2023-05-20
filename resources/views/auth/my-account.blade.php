@@ -21,12 +21,14 @@
                     <div class="col-sm-3">
                         <div class="product-sidebar">
                             <div class="sidebar-title">
-                                <h2>Shopping Options</h2>
+                                <h2>Account Options</h2>
+                            </div>
+                            <div class="banner-left">
+                                <img src="https://mdbcdn.b-cdn.net/img/new/avatars/8.webp" class="rounded-circle mb-3" style="width: 150px;"
+                                alt="Avatar" >
                             </div>
                             <div class="single-sidebar">
-                                <div class="single-sidebar-title">
-                                    <h3>Feature</h3>
-                                </div>
+                                <div></div>
                                 <div class="single-sidebar-content">
                                     <ul>
                                         

@@ -114,9 +114,13 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Users
                             </a>
-                            <a class="nav-link" href="{{ route('admin.users') }}">
+                            <a class="nav-link" href="{{ route('admin.comments') }}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Commets Blog
+                            </a>
+                            <a class="nav-link" href="{{ route('admin.comments.report') }}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                Commets Reported
                             </a>
                         </div>
                     </div>

@@ -15,7 +15,7 @@ class CreateCommentsTable extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->double('user_id');
+            $table->foreignId('user_id')->constrained('users');
             $table->double('blog_id');
             $table->string('content');
             $table->boolean('is_reported')->default(false);

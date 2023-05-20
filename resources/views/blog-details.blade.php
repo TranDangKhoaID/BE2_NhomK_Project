@@ -98,11 +98,22 @@
                                                             <ul>
                                                                 @foreach($comments as $comment)
                                                                 <li>
+                                                                    @if($comment->user->profile && isset($comment->user->profile->image))
                                                                     <div class="author-img">
-                                                                        <img src="{{ asset('img/blog/user.jpg')}}" alt="">
+                                                                        <img src="{{ asset('img/profile/' . $comment->user->profile->image) }}" alt="" width="50" height="50">
                                                                     </div>
+                                                                    @else
+                                                                    <div class="author-img">
+                                                                        <img src="{{ asset('img/profile/user.jpg')}}" alt="">
+                                                                    </div>
+                                                                    @endif
+
                                                                     <div class="author-comment">
-                                                                        <h5><a href="#">User #{{ $comment->user_id }}</a><a href="{{ route('comment.reported', ['id' => $comment->id]) }}"><i class="fa fa-flag" aria-hidden="true"></i>Report</a></h5>
+                                                                        @if($comment->user->profile && isset($comment->user->profile->fname) && isset($comment->user->profile->lname))
+                                                                            <h5><a href="#">{{ $comment->user->profile->fname }} {{ $comment->user->profile->lname }} #{{ $comment->user_id }}</a><a href="{{ route('comment.reported', ['id' => $comment->id]) }}"><i class="fa fa-flag" aria-hidden="true"></i>Report</a></h5>
+                                                                        @else
+                                                                            <h5><a href="#">User #{{ $comment->user_id }}</a><a href="{{ route('comment.reported', ['id' => $comment->id]) }}"><i class="fa fa-flag" aria-hidden="true"></i>Report</a></h5>
+                                                                        @endif
                                                                         <p> {{ $comment->content }} </p>
                                                                     </div>
                                                                 </li>

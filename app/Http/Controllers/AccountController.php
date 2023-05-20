@@ -41,6 +41,7 @@ class AccountController extends Controller
             'city' => 'required',
             'phone' => 'required',
             'post_code' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
     
         $user_id = Auth::id();
@@ -62,6 +63,12 @@ class AccountController extends Controller
         $profile->phone = $request->input('phone');
         $profile->post_code = $request->input('post_code');
         $profile->user_id = $user_id;
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = time() . '_' . $image->getClientOriginalName(); // Đính kèm thời gian vào tên tệp
+            $image->move(public_path('img/profile'), $imageName);
+            $profile->image = $imageName;
+        }  
         $profile->save();
     
         // Lưu thông báo thành công vào session flash

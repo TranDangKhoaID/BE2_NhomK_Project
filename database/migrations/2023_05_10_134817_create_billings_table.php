@@ -21,7 +21,7 @@ class CreateBillingsTable extends Migration
             $table->double('phone',10);
             $table->string('address',50);
             $table->string('city',50);
-            $table->string('saysomething',50)->nullable();;
+            $table->string('saysomething',50)->nullable();
             $table->double('amount');
             $table->string('status')->default('wait for confirmation');
             $table->timestamps();

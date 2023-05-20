@@ -23,10 +23,17 @@
                             <div class="sidebar-title">
                                 <h2>Account Options</h2>
                             </div>
-                            <div class="banner-left">
-                                <img src="img/profile/user.jpg" class="rounded-circle mb-3" style="width: 150px;"
-                                alt="Avatar" >
-                            </div>
+                            @if($profile && isset($profile->image))
+                                <div class="banner-left">
+                                    <img src="{{ asset('img/profile/' . $profile->image) }}"
+                                        class="rounded-circle mb-3" style="width: 150px;" alt="Avatar">
+                                </div>
+                            @else
+                             <div class="banner-left">
+                                    <img src="{{ asset('img/profile/user.jpg') }}"
+                                        class="rounded-circle mb-3" style="width: 150px;" alt="Avatar">
+                                </div>
+                            @endif
                             <div class="single-sidebar">
                                 <div></div>
                                 <div class="single-sidebar-content">
@@ -136,7 +143,7 @@
                                         <div class="panel-body">
                                             <div class="col-md-12">
                                                 <div class="delivery-details">
-                                                <form action="{{ route('account.update.profile') }}" method="POST">
+                                                <form action="{{ route('account.update.profile') }}" method="POST" enctype="multipart/form-data">
                                                     @csrf
                                                     <div class="list-style">
                                                         <div class="account-title">
@@ -167,10 +174,8 @@
                                                             <label>Post Code <em>*</em></label>
                                                             <input type="text" name="post_code" placeholder="Post Code" value="{{ $profile->post_code ?? '' }}">
                                                         </div>
-                                                        <div class="form-name">
-                                                            <label>Avatar <em>*</em></label>
-                                                            <input name="image" class="form-control" type="file" id="formFile">
-                                                        </div>
+                                                        <hr>
+                                                        <input name="image" class="form-control" type="file" id="formFile">
                                                         <div class="save-button">
                                                             <button>Save</button>
                                                         </div>

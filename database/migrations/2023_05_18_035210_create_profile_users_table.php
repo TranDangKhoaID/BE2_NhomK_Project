@@ -22,6 +22,7 @@ class CreateProfileUsersTable extends Migration
             $table->string('city');
             $table->string('phone');
             $table->string('post_code');
+            $table->string('image',150)->nullable();
             $table->timestamps();
         });
     }

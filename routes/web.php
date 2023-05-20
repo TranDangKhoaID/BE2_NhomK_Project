@@ -151,8 +151,6 @@ Route::post('/addcontact', [ContactController::class, 'addContact'])->name('add.
 //new letter
 Route::post('/newsletter/add', [MyController::class, 'addNewsLetter'])->name('add.newsletter');
 
-
-
 //các tuyến của khách hàng
 Route::middleware(['auth'])->group(function () {
     // Các tuyến khác 

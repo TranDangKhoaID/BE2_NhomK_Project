@@ -5,6 +5,7 @@
 
 @section('content')
         <!-- cart item area start -->
+       
         <div class="about-us">
             <div class="container">
                 <div class="row">
@@ -30,9 +31,29 @@
                             </div>
                         </div>
                         <div class="col-md-5 col-sm-5">
-                            <div class="about-img">
-                                <img src="img/about/about.jpg" alt="" class="img-responsive">
+                            <!-- Content -->
+                            <div id="mobile-box">
+
+                            <!-- Card -->
+                            <div class="card">
+                                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                <img class="card-img-top" src="audio/tothemoon.jpg"
+                                    alt="Card image cap">
+                                <a href="#!">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                </a>
+                                </div>
+                                <div class="card-body text-center">
+                                <p class="mb-0">Nhóm K - BE2 (Khoa, Hiếu, Phấn, Lan Anh)</p>
+                                <audio controls autoplay loop>
+                                    <source src="audio/tothemoon.mp3" type="audio/mpeg">
+                                    Your browser does not support the audio element.
+                                </audio>
+                                </div>
                             </div>
+                            <!-- Card -->
+                            </div>
+                            <!-- Content -->
                         </div>
                     </div>
                 </div>
@@ -86,10 +107,9 @@
                         <div class="col-md-3 hidden-sm">
                             <div class="single-member">
                                 <div class="member-info">
-                                    <img src="img/about/lananh.jpg" alt="">
+                                    <img src="img/about/1.jpg" alt="">
                                     <div class="member-social-profile">
-                                        <a href="https://www.facebook.com/EmmaLananh"> <i class="fa fa-facebook"></i> </a>
-                                        
+                                        <a href="#"> <i class="fa fa-facebook"></i> </a>    
                                     </div>
                                 </div>
                                 <h3>Nguyễn Thị Lan Anh</h3>

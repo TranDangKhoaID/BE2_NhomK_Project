@@ -189,10 +189,11 @@
                     <div class="col-sm-6">
                         <div class="newsleter">
                             <h3>newsletter</h3>
-                            <p>Subscribe to the james mailing list to receive updates on new arrivals, special offers and other discount information.</p>
+                            <p>Subscribe to the us mailing list to receive updates on new arrivals, special offers and other discount information.</p>
                             <div class="Subscribe">
-                                <form action="#">
-                                    <input type="text" title="Sign up">
+                                <form action="{{ route('add.newsletter') }}" method="POST">
+                                    @csrf
+                                    <input type="text" name="email" title="Sign up">
                                     <button type="submit" title="Subscribe">Subscribe</button>
                                 </form>
                             </div>

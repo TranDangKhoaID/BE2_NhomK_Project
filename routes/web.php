@@ -148,6 +148,9 @@ Route::get('/blogs/{id}', [BlogController::class, 'showBlogDetail'])->name('blog
 //contact
 Route::get('/contact', [ContactController::class, 'showContactForm'])->name('contact');
 Route::post('/addcontact', [ContactController::class, 'addContact'])->name('add.contact');
+//new letter
+Route::post('/newsletter/add', [MyController::class, 'addNewsLetter'])->name('add.newsletter');
+
 
 
 //các tuyến của khách hàng

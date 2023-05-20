@@ -6,6 +6,7 @@ use App\Models\Product;
 use App\Models\Cart;
 use App\Models\Slider;
 use App\Models\Blog;
+use App\Models\NewsLetter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -29,5 +30,24 @@ class MyController extends Controller
 
         return view('index', compact('blogs','sliders','newProducts','products', 'loggedInUserId', 'productCount'));
 
+    }
+    public function addNewsLetter(Request $request){
+        $request->validate([
+            'email' => 'required|email',
+        ]);
+
+        $email = $request->input('email');
+
+        // Kiểm tra nếu tên nhà sản xuất đã tồn tại
+        $existingLetter = NewsLetter::where('email', $email)->first();
+        if ($existingLetter) {
+            return redirect()->route('index')->with('error', 'Email already exists.');
+        }
+
+        $letter = new NewsLetter;
+        $letter->email = $request->input('email');
+        $letter->save();
+
+        return redirect()->route('index')->with('success', 'Email added successfully.');
     }
 }

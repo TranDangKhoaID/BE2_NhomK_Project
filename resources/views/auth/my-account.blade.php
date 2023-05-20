@@ -24,7 +24,7 @@
                                 <h2>Account Options</h2>
                             </div>
                             <div class="banner-left">
-                                <img src="https://mdbcdn.b-cdn.net/img/new/avatars/8.webp" class="rounded-circle mb-3" style="width: 150px;"
+                                <img src="img/profile/user.jpg" class="rounded-circle mb-3" style="width: 150px;"
                                 alt="Avatar" >
                             </div>
                             <div class="single-sidebar">
@@ -166,6 +166,10 @@
                                                         <div class="form-name">
                                                             <label>Post Code <em>*</em></label>
                                                             <input type="text" name="post_code" placeholder="Post Code" value="{{ $profile->post_code ?? '' }}">
+                                                        </div>
+                                                        <div class="form-name">
+                                                            <label>Avatar <em>*</em></label>
+                                                            <input name="image" class="form-control" type="file" id="formFile">
                                                         </div>
                                                         <div class="save-button">
                                                             <button>Save</button>

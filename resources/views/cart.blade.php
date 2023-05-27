@@ -42,9 +42,7 @@
                                     @foreach ($carts as $cart)             
                                         <tr>
                                         <td class="cart-item-img">
-                                            <a href="single-product.html">
-                                                <img src="{{ asset('img/product/' . $cart->image) }}" alt="" width="70" height="70">
-                                            </a>
+                                        <img src="{{ asset('img/product/' . $cart->image) }}" alt="" width="70" height="70">
                                         </td>
                                             @if (session('error'))
                                                 <div class="alert alert-danger">
@@ -52,9 +50,7 @@
                                                 </div>
                                             @endif
                                             <td class="cart-product-name">
-                                                
-                                                <a href="single-product.html">{{$cart->name}}</a>
-                                                
+                                                <p>{{$cart->name}}</p> 
                                             </td>
                                             <td class="move-wishlist">
                                                 <form action="{{ route('wishlist.add') }}" method="post">
@@ -70,13 +66,13 @@
                                                 </form>
                                             </td>
                                             <td class="unit-price">
-                                                <span>${{$cart->price}}</span>
+                                                <span>${{$cart->price}}.00</span>
                                             </td>
                                             <td class="quantity">
                                                 <span>{{$cart->quantity}}</span>
                                             </td>
                                             <td class="subtotal">
-                                                <span>{{$cart->subtotal }}</span>
+                                                <span>${{number_format($cart->subtotal)}}.00</span>
                                             </td>
                                             <td class="remove-icon">
                                             <form action="{{ route('cart.remove', ['productId' => $cart->product_id]) }}" method="POST">
@@ -116,7 +112,7 @@
                     </div>
                     <div class="col-sm-4">
                         <div class="totals">
-                            <h3>Grand Total <span>${{$grandTotal}}</span></h3>
+                            <h3>Grand Total <span>${{number_format($grandTotal)}}.00</span></h3>
                             <div class="shopping-button">
                             <form action="{{ route('cart.checkout')}}" method="GET">
                                 @csrf

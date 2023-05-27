@@ -134,7 +134,7 @@
                                                         <a href="{{route('products.showProductDetail', ['id' => $product->id]) }}" title="Fusce aliquam">{{$product->name}}</a>
                                                     </div>
                                                     <div class="price-rating">
-                                                        <span>{{$product->price}}</span>     
+                                                        <span>${{$product->price}}.00</span>     
                                                     </div>
                                                 </div>
                                             </div>

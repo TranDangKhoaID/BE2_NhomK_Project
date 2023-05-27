@@ -36,7 +36,7 @@
                         <div class="single-product-details">
                             <a href="#" class="product-name">{{$product->name}}</a>                   
                             <div class="item-price">
-                                <span>{{$product->price}}</span>
+                                <span>${{$product->price}}.00</span>
                             </div>
                             <div class="single-product-info">
                                 <p>{{$product->description}} </p>

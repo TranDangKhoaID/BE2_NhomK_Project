@@ -46,7 +46,7 @@
                                     @foreach ($blogs as $blog)
                                     <div class="single-blog-post-page">
                                         <div class="blog-img">
-                                            <a href="blog-details.html">
+                                            <a href="{{route('blog.showBlogDetail', ['id' => $blog->id]) }}">
                                                 <img src="{{ asset('img/blog/' . $blog->image) }}" alt="">
                                             </a>
                                         </div>

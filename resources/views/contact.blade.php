@@ -56,6 +56,7 @@
                         </div>
                     </div>
                     <div class="col-sm-9">
+                    <div id="googleMap"></div>
                         <div class="contact-info">
                         @if(session('success'))
                             <div class="alert alert-success">

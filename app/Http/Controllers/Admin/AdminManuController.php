@@ -64,7 +64,7 @@ class AdminManuController extends Controller
         // Xóa sản phẩm
         $manufacture->delete();
 
-        // Chuyển hướng về trang danh sách sản phẩm hoặc trang khác
+        // Chuyển hướng về trang danh sách sản 
         return redirect()->route('admin.manufactures')->with('success', 'Xóa thành công.');
     }
 

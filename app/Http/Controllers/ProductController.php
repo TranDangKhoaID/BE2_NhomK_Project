@@ -60,15 +60,19 @@ class ProductController extends Controller
         $searchTerm = $request->input('search');
         $products = Product::where('name', 'LIKE', '%' . $searchTerm . '%')->paginate(6);
         $manufactures = Manufacture::all();
+        $loggedInUserId = Auth::id();
         $protypes = Protype::all();
 
-        return view('shop', compact('products', 'manufactures', 'protypes'));
+        return view('shop', compact('products', 'manufactures', 'protypes','loggedInUserId'));
     }
     //Lan Anh
     //Lấy tất cả sản phẩm theo manufactures
     public function manufactureProduct($manu_id)
     {
         $manufacture = Manufacture::findOrFail($manu_id); 
+        if (!$manufacture) {
+            abort(404);
+        }
         $loggedInUserId = Auth::id();
         // Lấy danh sách sản phẩm của nhà sản xuất
         $products = Product::where('manu_id', $manu_id)->paginate(6);
@@ -83,6 +87,9 @@ class ProductController extends Controller
     public function protypeProduct($type_id)
     {
         $protype = Protype::findOrFail($type_id);
+        if (!$protype) {
+            abort(404);
+        }
         $loggedInUserId = Auth::id();
         // Lấy danh sách sản phẩm của nhà sản xuất
         $products = Product::where('type_id', $type_id)->paginate(6);
@@ -103,13 +110,14 @@ class ProductController extends Controller
         $priceRange = explode('--', $price);
         $minPrice = (float) trim($priceRange[0]);
         $maxPrice = (float) trim($priceRange[1]);
+        $loggedInUserId = Auth::id();
 
         // Truy vấn các sản phẩm có giá trong khoảng từ minPrice đến maxPrice
         $products = Product::whereBetween('price', [$minPrice, $maxPrice])->paginate(6);
         $manufactures = Manufacture::all();
         $protypes = Protype::all();
 
-        return view('shop', compact('products', 'manufactures', 'protypes'));
+        return view('shop', compact('products', 'manufactures', 'protypes','loggedInUserId'));
     }
 
 

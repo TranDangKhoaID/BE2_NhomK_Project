@@ -20,10 +20,17 @@ class RegisterController extends Controller
     public function register(Request $request)
     {
         // Kiểm tra mật khẩu và email
+        $name = $request->input('user-name');
         $password = $request->input('user-password');
         $confirmPassword = $request->input('confirm-password');
         $email = $request->input('user-email');
 
+        if (!$name) {
+            return redirect()->back()->withInput()->withErrors(['user-name' => 'Nhập user-name.']);
+        }
+        if (!$email) {
+            return redirect()->back()->withInput()->withErrors(['email' => 'Nhập email.']);
+        }
         // Kiểm tra mật khẩu phải có ít nhất 6 ký tự
         if (strlen($password) < 6) {
             return redirect()->back()->withInput()->withErrors(['password' => 'Mật khẩu phải có ít nhất 6 ký tự.']);

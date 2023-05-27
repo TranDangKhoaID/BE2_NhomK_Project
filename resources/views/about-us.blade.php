@@ -107,7 +107,7 @@
                         <div class="col-md-3 hidden-sm">
                             <div class="single-member">
                                 <div class="member-info">
-                                    <img src="img/about/1.jpg" alt="">
+                                    <img src="img/about/lananh.jpg" alt="">
                                     <div class="member-social-profile">
                                         <a href="#"> <i class="fa fa-facebook"></i> </a>    
                                     </div>

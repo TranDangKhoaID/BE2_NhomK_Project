@@ -19,7 +19,9 @@ class BlogController extends Controller
         // Lấy thông tin sản phẩm từ CSDL dựa trên $id
         $userID = Auth::id();
         $blog = Blog::find($id);
-        $comments = Comment::where('blog_id', $id)->paginate(5);
+        $comments = Comment::where('blog_id', $id)
+        ->orderBy('created_at', 'desc')
+        ->paginate(5);
         $count = Comment::where('blog_id', $id)->count(); // Đếm số lượng comment
         // Kiểm tra xem sản phẩm có tồn tại hay không
         if (!$blog) {

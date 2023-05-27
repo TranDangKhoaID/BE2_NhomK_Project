@@ -172,7 +172,7 @@
                             <div class="blog-content">
                                 <a href="blog-details.html" class="blog-title">{{ $blog->title }}</a>
                                 <span><a href="#">By {{ $blog->author }} - </a>{{ $blog->created_at }} ( 0 comments )</span>
-                                <p>{{ $blog->content }}</p>
+                                <p>{{ Str::limit($blog->content, 100, '...') }}</p>
                                 <a href="{{route('blog.showBlogDetail', ['id' => $blog->id]) }}" class="readmore">read more ></a>
                             </div>
                         </div>

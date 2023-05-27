@@ -40,7 +40,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="section-heading">
-                            <h2>FEATURED PRODUCTS</h2>
+                            <h2>ALL PRODUCTS</h2>
                         </div>
                     </div>
                 </div>
@@ -56,12 +56,12 @@
                                     <a href="{{route('products.showProductDetail', ['id' => $product->id]) }}" title="{{$product->name}}">{{$product->name}}</a>
                                 </div>
                                 <div class="price-rating">                                  
-                                    <span>{{$product->price}}</span>
+                                    <span>${{$product->price}}</span>
                                 </div>
                                 <div class="actions">
                                     @if (Auth::guest())
                                         <button type="button" class="cart-btn" title="Add to cart" onclick="showLoginAlert()">add to cart</button>
-                                        <span id="login-message" style="display: none;">Bạn cần đăng nhập</span>
+                                        <span id="login-message" style="display: none;">You need Login!</span>
                                     @else
                                     <form method="POST" action="{{ route('cart.add') }}">
                                         @csrf
@@ -116,7 +116,7 @@
                                     <a href="{{route('products.showProductDetail', ['id' => $product->id]) }}" title="Fusce aliquam">{{$product->name}}</a>
                                 </div>
                                 <div class="price-rating">         
-                                    <span>{{$product->price}}</span>
+                                    <span>${{$product->price}}</span>
                                 </div>
                                 <div class="actions">
                                     @if (Auth::guest())

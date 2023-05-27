@@ -70,7 +70,7 @@
                                                 </form>
                                             </td>
                                             <td class="unit-price">
-                                                <span>{{$cart->price}}</span>
+                                                <span>${{$cart->price}}</span>
                                             </td>
                                             <td class="quantity">
                                                 <span>{{$cart->quantity}}</span>
@@ -116,7 +116,7 @@
                     </div>
                     <div class="col-sm-4">
                         <div class="totals">
-                            <h3>Grand Total <span>{{$grandTotal}} VND</span></h3>
+                            <h3>Grand Total <span>${{$grandTotal}}</span></h3>
                             <div class="shopping-button">
                             <form action="{{ route('cart.checkout')}}" method="GET">
                                 @csrf

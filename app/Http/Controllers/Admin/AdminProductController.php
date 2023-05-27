@@ -20,7 +20,7 @@ class AdminProductController extends Controller
     {
         $product = Product::findOrFail($id);
         if(!$product){
-            return redirect()->back();
+            return redirect()->route('admin.products');
         }
         $manufactures = Manufacture::all();
         $protypes = Protype::all();

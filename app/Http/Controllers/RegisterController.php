@@ -35,6 +35,9 @@ class RegisterController extends Controller
         if (strlen($password) < 6) {
             return redirect()->back()->withInput()->withErrors(['password' => 'Mật khẩu phải có ít nhất 6 ký tự.']);
         }
+        if (strlen($password) > 50) {
+            return redirect()->back()->withInput()->withErrors(['password' => 'Mật khẩu không được lớn hơn 50 ký tự.']);
+        }
          // Kiểm tra xác nhận mật khẩu
         if ($password !== $confirmPassword) {
             return redirect()->back()->withInput()->withErrors(['confirm-password' => 'Xác nhận mật khẩu không khớp.']);

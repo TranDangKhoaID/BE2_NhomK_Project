@@ -125,13 +125,13 @@
                                                     @endif
                                                     <ul class="add-to-link">
                                                         <li><a href="{{route('products.showProductDetail', ['id' => $product->id]) }}"> <i class="fa fa-search"></i></a></li>
-                                                        <li><a href="#"> <i class="fa fa-heart-o"></i></a></li>               
+                                                                  
                                                     </ul>
                                                     </form>
                                                 </div>
                                                 <div class="product-price">
                                                     <div class="product-name">
-                                                        <a href="single-product.html" title="Fusce aliquam">{{$product->name}}</a>
+                                                        <a href="{{route('products.showProductDetail', ['id' => $product->id]) }}" title="Fusce aliquam">{{$product->name}}</a>
                                                     </div>
                                                     <div class="price-rating">
                                                         <span>{{$product->price}}</span>     

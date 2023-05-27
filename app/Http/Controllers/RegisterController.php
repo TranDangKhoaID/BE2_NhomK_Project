@@ -33,10 +33,10 @@ class RegisterController extends Controller
         }
         // Kiểm tra mật khẩu phải có ít nhất 6 ký tự
         if (strlen($password) < 6) {
-            return redirect()->back()->withInput()->withErrors(['password' => 'Mật khẩu phải có ít nhất 6 ký tự.']);
+            return redirect()->back()->withInput()->withErrors(['password' => 'Password less than 6 charaters.']);
         }
         if (strlen($password) > 50) {
-            return redirect()->back()->withInput()->withErrors(['password' => 'Mật khẩu không được lớn hơn 50 ký tự.']);
+            return redirect()->back()->withInput()->withErrors(['password' => 'Password more than 50 charaters.']);
         }
          // Kiểm tra xác nhận mật khẩu
         if ($password !== $confirmPassword) {
@@ -45,7 +45,7 @@ class RegisterController extends Controller
 
         // Kiểm tra email không được trùng
         if (User::where('email', $email)->exists()) {
-            return redirect()->back()->withInput()->withErrors(['email' => 'Email đã tồn tại.']);
+            return redirect()->back()->withInput()->withErrors(['email' => 'Email is exists.']);
         }
 
         // Lưu dữ liệu vào bảng users

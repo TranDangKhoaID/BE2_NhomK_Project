@@ -28,35 +28,7 @@
                             <div class="sidebar-title">
                                 <h2>Blogging Options</h2>
                             </div>
-                            <div class="single-sidebar">
-                                <div class="single-sidebar-title">
-                                    <h3>Category</h3>
-                                </div>
-                                <div class="single-sidebar-content">
-                                    <ul>
-                                        <li><a href="#">Dresses (4)</a></li>
-                                        <li><a href="#">shoes (6)</a></li>
-                                        <li><a href="#">Handbags (1)</a></li>
-                                        <li><a href="#">Clothing (3)</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="single-sidebar">
-                                <div class="single-sidebar-title">
-                                    <h3>Manufacturer</h3>
-                                </div>
-                                <div class="single-sidebar-content">
-                                    <ul>
-                                        <li><a href="#">Calvin Klein (2)</a></li>
-                                        <li><a href="#">Diesel (2)</a></li>
-                                        <li><a href="#">option value (1)</a></li>
-                                        <li><a href="#">Polo (2)</a></li>
-                                        <li><a href="#">store view (4)</a></li>
-                                        <li><a href="#">Tommy Hilfiger (2)</a></li>
-                                        <li><a href="#">will be used (1)</a></li>
-                                    </ul>
-                                </div>
-                            </div>
+                        
                             <div class="banner-left">
                                 <a href="#">
                                     <img src="img/product/banner_left.jpg" alt="">

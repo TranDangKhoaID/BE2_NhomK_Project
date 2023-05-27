@@ -26,7 +26,7 @@ class AdminLoginController extends Controller
             return redirect()->route('admin.index');
         }else {
             // Đăng nhập không thành công, xử lý thông báo lỗi và chuyển hướng trở lại trang đăng nhập
-            return redirect()->route('admin.login')->withErrors('Thông tin đăng nhập không chính xác');
+            return redirect()->route('admin.login')->withErrors('Login unsuccesfully');
         }
     }
 

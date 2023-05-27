@@ -29,16 +29,16 @@ class AdminRegisterController extends Controller
 
         // Kiểm tra mật khẩu phải có ít nhất 6 ký tự
         if (strlen($password) < 6) {
-            return redirect()->back()->withInput()->withErrors(['password' => 'Mật khẩu phải có ít nhất 6 ký tự.']);
+            return redirect()->back()->withInput()->withErrors(['password' => 'Password need less than 6 charaters.']);
         }
          // Kiểm tra xác nhận mật khẩu
         if ($password !== $confirmPassword) {
-            return redirect()->back()->withInput()->withErrors(['confirm-password' => 'Xác nhận mật khẩu không khớp.']);
+            return redirect()->back()->withInput()->withErrors(['confirm-password' => 'Confirm password invalid.']);
         }
 
         // Kiểm tra email không được trùng
         if (Admin::where('email', $email)->exists()) {
-            return redirect()->back()->withInput()->withErrors(['email' => 'Email đã tồn tại.']);
+            return redirect()->back()->withInput()->withErrors(['email' => 'Email is exist.']);
         }
 
         // Lưu dữ liệu vào bảng users

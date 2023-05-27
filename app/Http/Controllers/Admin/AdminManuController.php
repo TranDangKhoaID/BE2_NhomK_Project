@@ -19,7 +19,10 @@ class AdminManuController extends Controller
     }
     public function indexEdit(Request $request, $manu_id)
     { 
-        $manufacture = Manufacture::where('manu_id', $manu_id)->firstOrFail();
+        $manufacture = Manufacture::where('manu_id', $manu_id)->first();
+        if(!$manufacture){
+            return redirect()->route('admin.manufactures');
+        }
         return view('admin.editmanufacture', compact('manufacture'));
     }
     public function addManu(Request $request){
@@ -59,8 +62,10 @@ class AdminManuController extends Controller
     public function deleteManu($manu_id)
     {
         // Tìm sản phẩm cần xóa
-        $manufacture = Manufacture::where('manu_id', $manu_id)->firstOrFail();
-
+        $manufacture = Manufacture::where('manu_id', $manu_id)->first();
+        if(!$manufacture){
+            return redirect()->route('admin.manufactures');
+        }
         // Xóa sản phẩm
         $manufacture->delete();
 

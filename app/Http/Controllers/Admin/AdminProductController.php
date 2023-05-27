@@ -18,7 +18,7 @@ class AdminProductController extends Controller
     }
     public function indexEdit($id)
     {
-        $product = Product::findOrFail($id);
+        $product = Product::find($id);
         if(!$product){
             return redirect()->route('admin.products');
         }
@@ -66,7 +66,10 @@ class AdminProductController extends Controller
     }
     public function editProduct(Request $request, $id)
     {
-        $product = Product::findOrFail($id);
+        $product = Product::find($id);
+        if(!$product){
+            return redirect()->route('admin.products');
+        }
         
         $request->validate([
             'name' => 'required',
@@ -101,9 +104,9 @@ class AdminProductController extends Controller
     public function deleteProduct($id)
     {
         // Tìm sản phẩm cần xóa
-        $product = Product::findOrFail($id);
-        if (!$product) {
-            abort(404);
+        $product = Product::find($id);
+        if(!$product){
+            return redirect()->route('admin.products');
         }
         // Xóa sản phẩm
         $product->delete();

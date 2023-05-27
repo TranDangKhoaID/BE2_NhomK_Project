@@ -19,7 +19,7 @@ class AdminProtypeController extends Controller
     }
     public function indexEdit(Request $request, $type_id)
     { 
-        $protype = Protype::where('type_id', $type_id)->firstOrFail();
+        $protype = Protype::where('type_id', $type_id)->first();
         if(!$protype){
             return redirect()->route('admin.protypes');
         }
@@ -62,8 +62,10 @@ class AdminProtypeController extends Controller
     public function deleteManu($type_id)
     {
         // Tìm sản phẩm cần xóa
-        $protype = Protype::where('type_id', $type_id)->firstOrFail();
-
+        $protype = Protype::where('type_id', $type_id)->first();
+        if(!$protype){
+            return redirect()->route('admin.protypes');
+        }
         // Xóa sản phẩm
         $protype->delete();
 

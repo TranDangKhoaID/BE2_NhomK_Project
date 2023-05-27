@@ -14,6 +14,10 @@ class AdminLoginController extends Controller
     public function index()
     {
         // Xử lý logic cho trang đăng nhập của quản trị viên
+        if (Auth::guard('admin')->check()) {
+            // Đăng nhập thành công, chuyển hướng đến trang index
+            return redirect()->route('admin.index');
+        }
         return view('admin.login');
     }
 

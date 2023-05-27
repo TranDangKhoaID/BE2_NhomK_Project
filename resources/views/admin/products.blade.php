@@ -54,8 +54,12 @@
                                         <div class="col-md-3">
                                             <div class="candidates-list-fav-btn text-right">
                                                 <div class="candidates-listing-btn mt-4">
-                                                    <a href="{{ route('admin.editproducts', $product->id) }}" class="btn btn-outline btn-sm">EDIT</a>
+                                                    <form action="{{ route('admin.editproducts', $product->id) }}" method="GET">
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-outline btn-sm">EDIT</button>
+                                                    </form>
                                                 </div>
+                                                
                                                 <div class="candidates-listing-btn mt-4">
                                                     <form action="{{ route('admin.deleteproduct', ['id' => $product->id]) }}" method="POST">
                                                         @csrf

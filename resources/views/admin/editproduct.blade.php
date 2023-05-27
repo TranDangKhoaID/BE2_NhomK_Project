@@ -30,13 +30,13 @@
                     <input name="name" type="text" id="form4Example1" placeholder="Name" class="form-control" value="{{$product->name}}" />
                 </div>
                 <select class="form-select mb-4" aria-label="Default select example"  name="manufacture">
-                    <option selected>Manufacture</option>
+                    
                     @foreach ($manufactures as $manufacture)
                     <option value="{{$manufacture->manu_id}}">{{$manufacture->manu_name}}</option>
                     @endforeach
                 </select>
                 <select class="form-select mb-4" aria-label="Default select example" name="protype">
-                    <option selected>Protype</option>
+                   
                     @foreach ($protypes as $protype)
                         <option value="{{ $protype->type_id }}">{{ $protype->type_name }}</option>
                     @endforeach

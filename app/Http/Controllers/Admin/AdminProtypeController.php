@@ -20,6 +20,9 @@ class AdminProtypeController extends Controller
     public function indexEdit(Request $request, $type_id)
     { 
         $protype = Protype::where('type_id', $type_id)->firstOrFail();
+        if(!$protype){
+            return redirect()->route('admin.protypes');
+        }
         return view('admin.editprotype', compact('protype'));
     }
     public function addManu(Request $request){

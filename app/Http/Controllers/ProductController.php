@@ -129,7 +129,7 @@ class ProductController extends Controller
         $loggedInUserId = Auth::id();
         // Kiểm tra xem sản phẩm có tồn tại hay không
         if (!$product) {
-             abort(404);
+            return redirect()->route('shop');
         }
 
         // Lấy danh sách sản phẩm có cùng manu_id

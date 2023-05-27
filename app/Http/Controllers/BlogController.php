@@ -23,7 +23,7 @@ class BlogController extends Controller
         $count = Comment::where('blog_id', $id)->count(); // Đếm số lượng comment
         // Kiểm tra xem sản phẩm có tồn tại hay không
         if (!$blog) {
-             abort(404);
+            return redirect()->route('blog');
         }
 
         return view('blog-details', compact('blog','userID','comments','count'));

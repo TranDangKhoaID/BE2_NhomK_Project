@@ -79,6 +79,7 @@
                                             <ul class="search">
                                                 <li>
                                                     <form action="{{ route('search.products') }}" method="GET">
+                                                        @csrf
                                                         <input type="text" name="search" placeholder="Search">
                                                         <button type="submit"> <i class="fa fa-search"></i> </button>
                                                     </form>

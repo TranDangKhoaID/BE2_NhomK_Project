@@ -67,9 +67,7 @@ class AdminProductController extends Controller
     public function editProduct(Request $request, $id)
     {
         $product = Product::findOrFail($id);
-        if(!$product){
-            return redirect()->back();
-        }
+        
         $request->validate([
             'name' => 'required',
             'price' => 'required',

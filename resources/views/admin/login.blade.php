@@ -40,8 +40,8 @@
                                                 </div>
                                             @endif
                                             
-                                            <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                <a class="small" href="password.html">Forgot Password?</a>
+                                            <div class="d-flex align-items-center justify-content-center mt-4 mb-0">
+                                                
                                                 <div class="mt-4 mb-0">
                                                     <div class="button-box">
                                                         <button type="submit" class="default-btn">Login</button>

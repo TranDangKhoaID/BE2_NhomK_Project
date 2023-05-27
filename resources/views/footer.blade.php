@@ -33,7 +33,7 @@
                                     <li><a href="#">Privacy Policy</a></li>
                                     <li><a href="#">Your Account</a></li>
                                     <li><a href="#">Advanced Search</a></li>
-                                    <li><a href="contact.html">Contact Us</a></li>
+                                    <li><a href="{{ route('contact') }}">Contact Us</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -45,7 +45,7 @@
                             </div>
                             <div class="footer-menu">
                                 <ul>
-                                    <li><a href="about-us.html">About Us</a></li>
+                                    <li><a href="/about-us">About Us</a></li>
                                     <li><a href="#">Customer Service</a></li>
                                     <li><a href="#">Privacy Policy</a></li>
                                     <li><a href="#">Orders and Returns</a></li>

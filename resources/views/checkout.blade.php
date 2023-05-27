@@ -150,8 +150,8 @@
                                                                     </td>
                                                                     
                                                                     <td>{{$cart->quantity}}</td>
-                                                                    <td>{{$cart->price}}</td>
-                                                                    <td>{{$cart->subtotal}}</td>
+                                                                    <td>${{$cart->price}}.00</td>
+                                                                    <td>${{number_format($cart->subtotal)}}.00</td>
                                                                 </tr>
                                                             @endforeach
                                                             </tbody>
@@ -160,7 +160,7 @@
                                                                     <td class="text-right" colspan="4">
                                                                         <strong>Sub-Total:</strong>
                                                                     </td>
-                                                                    <td>{{$grandTotal}}</td>
+                                                                    <td>${{number_format($grandTotal)}}.00</td>
                                                                 </tr>
 
                                                             </tfoot>

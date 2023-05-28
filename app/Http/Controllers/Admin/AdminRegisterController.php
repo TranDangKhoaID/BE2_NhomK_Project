@@ -31,6 +31,9 @@ class AdminRegisterController extends Controller
         if (strlen($password) < 6) {
             return redirect()->back()->withInput()->withErrors(['password' => 'Password need less than 6 charaters.']);
         }
+        if (strlen($password) > 50) {
+            return redirect()->back()->withInput()->withErrors(['password' => 'Password not more than than 50 charaters.']);
+        }
          // Kiểm tra xác nhận mật khẩu
         if ($password !== $confirmPassword) {
             return redirect()->back()->withInput()->withErrors(['confirm-password' => 'Confirm password invalid.']);

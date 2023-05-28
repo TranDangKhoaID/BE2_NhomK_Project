@@ -49,7 +49,7 @@ class AdminProtypeController extends Controller
         $protype = Protype::where('type_id', $type_id)->firstOrFail();
 
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|max:50',
         ]);
 
         // Cập nhật thông tin

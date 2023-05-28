@@ -27,7 +27,7 @@ class AdminManuController extends Controller
     }
     public function addManu(Request $request){
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|max:50',
         ]);
 
         $manuName = $request->input('name');
@@ -49,7 +49,7 @@ class AdminManuController extends Controller
         $manufacture = Manufacture::where('manu_id', $manu_id)->firstOrFail();
 
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|max:50',
         ]);
 
         // Cập nhật thông tin

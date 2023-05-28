@@ -31,10 +31,10 @@ class AdminBlogController extends Controller
 
     public function addBlog(Request $request){
         $request->validate([
-            'title' => 'required',
+            'title' => 'required|max:50',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'content' => 'required',
-            'author' => 'required',
+            'content' => 'required|max:50',
+            'author' => 'required|max:50',
         ]);
         $blog = new Blog;
         $blog->title = $request->input('title');

@@ -13,9 +13,9 @@ class AdminSliderController extends Controller
     }
     public function addSlider(Request $request){
         $request->validate([
-            'title1' => 'required',
-            'title2' => 'required',
-            'title3' => 'required',
+            'title1' => 'required|max:50',
+            'title2' => 'required|max:50',
+            'title3' => 'required|max:50',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         $slider = new Slider;

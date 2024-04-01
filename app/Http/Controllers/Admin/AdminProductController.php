@@ -72,13 +72,13 @@ class AdminProductController extends Controller
         }
         
         $request->validate([
-            'name' => 'required',
-            'price' => 'required',
-            'manufacture' => 'required',
-            'protype' => 'required',
+            'name' => 'required|max:50',
+            'price' => 'required|max:50',
+            'manufacture' => 'required|max:50',
+            'protype' => 'required|max:50',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'description' => 'required',
-            'feature' => 'required',
+            'description' => 'required|max:255',
+            'feature' => 'required|max:50',
         ]);
 
         // Cập nhật thông tin sản phẩm

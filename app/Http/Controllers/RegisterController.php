@@ -47,7 +47,9 @@ class RegisterController extends Controller
         if (User::where('email', $email)->exists()) {
             return redirect()->back()->withInput()->withErrors(['email' => 'Email is exists.']);
         }
-
+        if (strlen($name) > 50 ) {
+            return redirect()->back()->withInput()->withErrors(['name' => 'Name more than 50 charaters']);
+        }
         // Lưu dữ liệu vào bảng users
         $user = new User();
         $user->name = $request->input('user-name');

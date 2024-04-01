@@ -22,6 +22,7 @@ class CartController extends Controller
     }
     public function addToCart(Request $request)
     {
+        
         $productId = $request->input('product_id');
         $quantity = $request->input('quantity');
         $name = $request->input('name');
@@ -33,7 +34,6 @@ class CartController extends Controller
         $existingCartItem = Cart::where('user_id', $userID)
                                 ->where('product_id', $productId)
                                 ->first();
-
         if ($existingCartItem) {
             // Nếu sản phẩm đã tồn tại, cộng dồn số lượng sản phẩm
             $existingCartItem->quantity += $quantity;

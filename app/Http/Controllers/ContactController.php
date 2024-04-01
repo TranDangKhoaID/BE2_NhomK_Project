@@ -12,10 +12,10 @@ class ContactController extends Controller
     }
     public function addContact(Request $request){
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|max:50',
             'email' => 'required|email',
             'phone' => 'required|digits:10',
-            'comment' => 'required',
+            'comment' => 'required|max:50',
         ]);        
         $contact = new Contact;
         $contact->name = $request->input('name');

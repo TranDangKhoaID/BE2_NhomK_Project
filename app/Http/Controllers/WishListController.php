@@ -16,6 +16,7 @@ class WishListController extends Controller
     }
     public function addToWishList(Request $request)
     {
+       
         $productId = $request->input('product_id');
         $name = $request->input('name');
         $price = $request->input('price');

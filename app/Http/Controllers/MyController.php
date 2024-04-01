@@ -33,7 +33,7 @@ class MyController extends Controller
     }
     public function addNewsLetter(Request $request){
         $request->validate([
-            'email' => 'required|email',
+            'email' => 'required|email|max:255',
         ]);
 
         $email = $request->input('email');

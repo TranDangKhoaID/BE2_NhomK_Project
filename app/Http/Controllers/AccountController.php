@@ -35,12 +35,12 @@ class AccountController extends Controller
     {
         // Xử lý lưu thông tin cá nhân được gửi từ form
         $validatedData = $request->validate([
-            'fname' => 'required',
-            'lname' => 'required',
-            'address' => 'required',
-            'city' => 'required',
-            'phone' => 'required',
-            'post_code' => 'required',
+            'fname' => 'required|max:50',
+            'lname' => 'required|max:50',
+            'address' => 'required|max:50',
+            'city' => 'required|max:100',
+            'phone' => 'required|max:10',
+            'post_code' => 'required|max:50',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
     
@@ -80,8 +80,8 @@ class AccountController extends Controller
     public function changePassword(Request $request)
     {
         $request->validate([
-            'current_password' => 'required',
-            'password' => 'required|min:6|confirmed',
+            'current_password' => 'required|max:50',
+            'password' => 'required|min:6|confirmed|max:50',
         ]);
 
         $user = Auth::user();

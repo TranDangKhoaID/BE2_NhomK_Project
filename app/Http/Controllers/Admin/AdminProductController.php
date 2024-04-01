@@ -40,13 +40,13 @@ class AdminProductController extends Controller
     {
         // Kiểm tra các trường không được để trống
         $request->validate([
-            'name' => 'required',
-            'price' => 'required',
-            'manufacture' => 'required',
-            'protype' => 'required',
+            'name' => 'required|max:50',
+            'price' => 'required|max:50',
+            'manufacture' => 'required|max:50',
+            'protype' => 'required|max:50',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'description' => 'required',
-            'feature' => 'required',
+            'description' => 'required|max:255',
+            'feature' => 'required|max:50',
         ]);
         $product = new Product;
         $product->name = $request->input('name');
